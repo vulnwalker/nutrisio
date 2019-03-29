@@ -30,7 +30,7 @@
                              </a>
                          </li>
                         <?php else: ?>
-                        <li id="menu-item-990" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-990 nav-item dropdown nl-simple"><a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo e(Auth::user()->name); ?></a>
+                        <li id="menu-item-990" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-990 nav-item dropdown nl-simple"><a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo e(Auth::user()->nama); ?></a>
                         <div class="sub-menu dropdown-menu"><div class="crrm-inner row">
                             <div id="menu-item-992" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-992 ">
                                 <a href="/home" class="dropdown-item">Dashboard</a>

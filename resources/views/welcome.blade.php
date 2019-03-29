@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en-US" class="no-js no-svg">
 
-<!-- Mirrored from jthemes.org/asset/genemy/creative/landing/design-studio/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Mar 2019 21:52:11 GMT -->
-<!-- Added by HTTrack -->
+
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-<!-- /Added by HTTrack -->
+
 
 <head>
     <meta charset="UTF-8">

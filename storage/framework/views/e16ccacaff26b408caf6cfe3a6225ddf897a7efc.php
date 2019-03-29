@@ -65,6 +65,179 @@
     </div>
 </section>
 
+
+<section id="testimonials" data-vc-full-width="true" data-vc-full-width-init="false" data-vc-parallax-image="http://jthemes.org/wp/genemy/creative/wp-content/themes/genemy/images/banner-1.jpg" data-opacity="1" data-size="cover" data-width="100%" data-position="cover" data-repeat="cover" data-attachment="cover" class="vc_section wide-60 bg-lightgrey">
+    <div class="container">
+        <div class="vc_row wpb_row vc_row-fluid genemy-default bg-tra">
+            <div class="wpb_column vc_column_container vc_col-sm-12 bg-tra">
+                <div class="vc_column-inner">
+                    <div class="wpb_wrapper">
+                        <div class="row">
+                            <div class="section-title text-center col-lg-10 offset-lg-1">
+                                <span class="section-id rose-color">Trusted by the experts</span>
+
+                                <h3 class="h3-xl">What Customers Are Saying</h3>
+                                <p class="p-lg -color">An enim nullam tempor sapien gravida donec enim ipsum blandit porta justo integer odio velna vitae auctor integer congue magna at purus</p>
+                            </div>
+                        </div>
+                        <!-- END SECTION TITLE -->
+
+                        <div id="reviews-2" class="reviews-section">
+                            <div class="owl-carousel owl-theme reviews-holder">
+
+                                <div class="review-2">
+                                    <div class="testimonial-avatar">
+                                        <img src="https://nutrisio.co.id/wp-content/uploads/2019/01/ivan-150x150.png" alt="pebz13">
+                                    </div>
+                                    <!-- Testimonial Author Avatar -->
+                                    <div class="review-author">
+                                        <h5 class="h5-sm txt-up txt-800">Ivan</h5>
+                                        <span class="grey-color">Anak Tidak Fokus Belajar</span>
+                                    </div>
+                                    <!-- Testimonial Author -->
+
+                                    <div class="review-txt">
+                                        <p>" Ivan, 5th putra Ibu Dian, ini selalu riang, aktif dan cerdas. Ivan mengikuti pendidikan informal prasekolah, kurang terampil bersosialisasi dengan anak-anak  sebayanya, lebih senang berinteraksi dengan anak yang lebih gede ( 10th-nan) atau malah orang dewasa. Ivan lebih bersifat menggoda terhadap anak sebaya, dan selalu banyak  bertanya kepada guru pengajarnya serta banyak bergerak kesana-kemari sehingga mengganggu teman-temannya belajar, Ivan juga kurang fokus untuk tertib menekuni pelajarannya. Setelah mengkonsumsi “NUTRISIO” selama satu minggu mulai nampak hasil manfaat pada perkembangan Ivan. Ini di ketahui Ibunya melalui laporan-lisan Guru pengajar yang kebetulan berdekatan rumah, bahwa Ivan sekarang lebih menurut diarahkan, dan lebih mau menyimak pelajarannya, berkurang tingkah mengganggu temannya. "</p>
+                                    </div>
+                                    <!-- Testimonial Text -->
+                                </div>
+                                <!-- TESTIMONIAL #1 -->
+
+                                <div class="review-2">
+                                    <div class="testimonial-avatar">
+                                        <img src="https://nutrisio.co.id/wp-content/uploads/2019/01/novi-150x150.jpg" alt="Evelyn Martinez">
+                                    </div>
+                                    <!-- Testimonial Author Avatar -->
+                                    <div class="review-author">
+                                        <h5 class="h5-sm txt-up txt-800">Noviana </h5>
+                                        <span class="grey-color">Pusing, Demam Bedarah</span>
+                                    </div>
+                                    <!-- Testimonial Author -->
+
+                                    <div class="review-txt">
+                                        <p>" Noviana 7th Tasikmalaya meringkuk demam tinggi turun-naik dan merancau, dokter mendiagnosa Demam Berdarah. Semalaman ibunya setiap  2 jam sekali meneteskan “NUTRISIO” 2 tetes dibawah lidah, hingga pagi harinya. Hasilnya Noviana badannya menjadi nampak kuat, bangun pagi dengan panas badan normal dan stabil serta mau sarapan pagi. "</p>
+                                    </div>
+                                    <!-- Testimonial Text -->
+                                </div>
+                                <!-- TESTIMONIAL #2 -->
+
+                                <div class="review-2">
+                                    <div class="testimonial-avatar">
+                                        <img src="https://nutrisio.co.id/wp-content/uploads/2019/01/detami-150x150.jpg" alt="Robert Peterson">
+                                    </div>
+                                    <!-- Testimonial Author Avatar -->
+                                    <div class="review-author">
+                                        <h5 class="h5-sm txt-up txt-800">Detami Meilany</h5>
+                                        <span class="grey-color">Ganguan Konsentrasi dan Halusinasi</span>
+                                    </div>
+                                    <!-- Testimonial Author -->
+
+                                    <div class="review-txt">
+                                        <p>" Putri saya Detami Meilany kelas 2 SMK, mengalami keluhan yang tidak lazim, yaitu beberapa kali mengalami kebingungan sesaat, halusinasi (bolpoin/penggaris/tip-ex dll yg terlihat  diatas meja ketika dijangkau akan dipegang, ternyata tidak ada, tidak terpegang). Juga ketika jatuh dari mengendarai sepeda motor merasa bingung menjelaskan penyebabnya. Setelah mengkonsumsi “NUTRISIO” hampir sebulan ini, Detami lebih nampak ekspresif dari  sebelumnya sejak TK hingga lulus SMP dominan introvet, apatis, egois, tidak mau berteman, judes, sangat pelit ngomong. Sekarang nampak hal baru mengenai performa kepribadian putri saya, yaitu lebih dapat fokus, kehati-hatian yang terencana,  keserasian antara ucapan dengan gerakan. "</p>
+                                    </div>
+                                    <!-- Testimonial Text -->
+                                </div>
+                                <!-- TESTIMONIAL #3 -->
+
+                                <div class="review-2">
+                                    <div class="testimonial-avatar">
+                                        <img src="https://nutrisio.co.id/wp-content/uploads/2019/01/mala-150x150.jpg" alt="Evelyn Martinez">
+                                    </div>
+                                    <!-- Testimonial Author Avatar -->
+                                    <div class="review-author">
+                                        <h5 class="h5-sm txt-up txt-800">Ibu Mala</h5>
+                                        <span class="grey-color">Gelisah, Susah Tidur, Pusing 4 Tahun</span>
+                                    </div>
+                                    <!-- Testimonial Author -->
+
+                                    <div class="review-txt">
+                                        <p>" Ibu Mala, 51th sejak tahun 2013 nyeri kepala bertahun-tahun itu disertai insomnia-berat sangat mengganggu kenyamanan. Setelah minum “NUTRISIO” selama 2 minggu, Ibu Mala dapat merasakan nikmatnya tidur pulas tanpa mimpi buruk dan tidak lagi dihampiri nyeri kepala. "</p>
+                                    </div>
+                                    <!-- Testimonial Text -->
+                                </div>
+                                <!-- TESTIMONIAL #4 -->
+
+                                <div class="review-2">
+                                    <div class="testimonial-avatar">
+                                        <img src="https://nutrisio.co.id/wp-content/uploads/2019/01/elan-150x150.jpg" alt="Robert Peterson">
+                                    </div>
+                                    <!-- Testimonial Author Avatar -->
+                                    <div class="review-author">
+                                        <h5 class="h5-sm txt-up txt-800">Bp.Elan Zailani</h5>
+                                        <span class="grey-color">Kram Perut Kejang disertai Pingsan beberapa menit selama 18 thn</span>
+                                    </div>
+                                    <!-- Testimonial Author -->
+
+                                    <div class="review-txt">
+                                        <p>" Bp.Elan Zailani, 45th. Dari Agustus 1997, sering mengalami kejang pada pagi hari dengan frekuensi 2-5 x tiap minggunya dengan durasi kejang lebih dari 5 menit disertai pingsan lebih 15 menit. Penderitaan dialami lebih 18th ini menjadikan pribadi beliau semakin tegar pantang menyerah berupaya untk memulihkan kesehatannya. Telah berobat ke beberapa dokter dari berbagai kota dijalani dengan penuh kesabaran juga menjalani terapi alternatif disertai pengharapan kesembuhannya. Sayangnya, belum diperoleh pemulihan kesehatan. Awal Oktober 2016 yang lalu Bp.Elan dipertemukan dengan “NUTRISIO”  dan diminum secara rutin sesuai aturan minum, tiap 3 hari Bp.Elan konsultasi dan terus dijalani secara tekun. Alhamdulillah, setelah 1 bulan telah terjadi progres yang melegakan, hanya terjadi kejang 2 kali dengan durasi beberapa detik saja tanpa pingsan. "</p>
+                                    </div>
+                                    <!-- Testimonial Text -->
+                                </div>
+
+                                <div class="review-2">
+                                    <div class="testimonial-avatar">
+                                        <img src="https://nutrisio.co.id/wp-content/uploads/2019/01/ibu-rini-150x150.jpg" alt="Robert Peterson">
+                                    </div>
+                                    <!-- Testimonial Author Avatar -->
+                                    <div class="review-author">
+                                        <h5 class="h5-sm txt-up txt-800">Ibu Rini Sumartini</h5>
+                                        <span class="grey-color">Selalu Pusing, Mudah Marah selama 16 tahun</span>
+                                    </div>
+                                    <!-- Testimonial Author -->
+
+                                    <div class="review-txt">
+                                        <p>" Ibu Rini Sumartini, 60th. Pada 1987 silam dirawat di RSCM Jakarta selama 3 bulan karena terjadi infeksi di Otak. Setelah itu Ibu Rini kehilangan 80% daya dengarnya, pada Maret, 2000 Ibu Rini mengalami Stroke. Tekanan darah diatas 170/110 mmHg, jantung berdebar-debar kencang dan selalu pusing tiap hari demikian pula gula darahnya mudah sekali melonjak ketika sedikit menyimpang dari aturan-ketat diet makannya,  emosi sering tidak terkendali. Dalam waktu 3 minggu terapi dengan “NUTRISIO”, menjadikan Ibu Rini berpenampilan cerah, tensi darah stabil diangka 130/90-an, pening kepala yg selalu  datang tiap hari tidak lagi. "</p>
+                                    </div>
+                                    <!-- Testimonial Text -->
+                                </div>
+
+
+                                <div class="review-2">
+                                    <div class="testimonial-avatar">
+                                        <img src="https://nutrisio.co.id/wp-content/uploads/2019/01/engkus-150x150.jpg" alt="Robert Peterson">
+                                    </div>
+                                    <!-- Testimonial Author Avatar -->
+                                    <div class="review-author">
+                                        <h5 class="h5-sm txt-up txt-800">Bapak Engkus Barokah</h5>
+                                        <span class="grey-color">Pelupa, dada sesak dan berdebar-debar</span>
+                                    </div>
+                                    <!-- Testimonial Author -->
+
+                                    <div class="review-txt">
+                                        <p>"Bapak Engkus Barokah 64th. Sebulan yang lewat dirawat 3hari di RS.UD karena dugaan Tipus. “Wasyukurillah setelah saya minum obat herbal “NUTRISIO” seminggu, saya menjadi bugar oleh karena dapat tidur nyenyak, dada jadi lega dan longgar tidak berdebar kencang. Perasaan saya juga jadi nyaman, berkegiatan menjadi menyenangkan. Dan kebiasaan salah atau lupa jumlah rokaat pada mengimami solat telah teratasi”. "</p>
+                                    </div>
+                                    <!-- Testimonial Text -->
+                                </div>
+
+                                <div class="review-2">
+                                    <div class="testimonial-avatar">
+                                        <img src="https://nutrisio.co.id/wp-content/uploads/2019/01/esih-150x150.jpg" alt="Robert Peterson">
+                                    </div>
+                                    <!-- Testimonial Author Avatar -->
+                                    <div class="review-author">
+                                        <h5 class="h5-sm txt-up txt-800">Ibu Esih</h5>
+                                        <span class="grey-color"> Nyeri Otot Jantung, Maag dan Vertigo</span>
+                                    </div>
+                                    <!-- Testimonial Author -->
+
+                                    <div class="review-txt">
+                                        <p>" Ibu Esih, 55th telah bertahun-tahun menderita maag yang kronis, nyeri dada(bukan angina vektoris, tapi iskemia jantung, nyeri otot jantung karena penyempitan pembuluh darah) dan juga vertigo. Setelah konsumsi “NUTRISIO” selama 3hari ternyata hasilnya telah dirasakan. Ibu Esih telah menikmati  bernapas menjadi lega, dada terasa plong tidak nyeri lagi, dan menjadi segar sehabis mandi walaupun beliau mandi dengan air dingin (sebelumnya nyeri dan dada sesak), perutnya tidak kembung dan melilit lagi. "</p>
+                                    </div>
+                                    <!-- Testimonial Text -->
+                                </div>
+                                <!-- TESTIMONIAL #5 -->
+
+                            </div>
+                        </div>
+                        <!-- TESTIMONIALS CAROUSEL -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section data-vc-full-width="true" data-vc-full-width-init="true" data-vc-parallax-image="http://jthemes.org/wp/genemy/creative/wp-content/themes/genemy/images/banner-1.jpg" data-opacity="1" data-size="cover" data-width="100%" data-position="cover" data-repeat="cover" data-attachment="cover" class="vc_section wide-60 bg-white" style="position: relative; left: 15px; box-sizing: border-box; width: 1351px; padding-left: 0px; padding-right: 0px;">
     <div class="container">
         <div class="vc_row wpb_row vc_row-fluid genemy-default bg-tra">

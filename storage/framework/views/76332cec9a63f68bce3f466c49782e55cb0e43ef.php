@@ -24,7 +24,7 @@
         <div class="scrollbar-inner">
           <!-- Brand -->
           <div class="sidenav-header d-flex align-items-center">
-            <a class="navbar-brand" href="dashboard.html">
+            <a class="navbar-brand" href="/">
               <img src="<?php echo e(asset('images/logo.png')); ?>" class="navbar-brand-img" alt="...">
             </a>
             <div class="ml-auto">
@@ -44,71 +44,41 @@
               <!-- Nav items -->
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link active" href="#navbar-dashboards" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-dashboards">
+                  <a class="nav-link active" href="/home">
                     <i class="ni ni-shop text-primary"></i>
                     <span class="nav-link-text">Dashboards</span>
                   </a>
-                  <div class="collapse show" id="navbar-dashboards">
-                    <ul class="nav nav-sm flex-column">
-                      <li class="nav-item">
-                        <a href="dashboard.html" class="nav-link">Dashboard</a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="alternative.html" class="nav-link">Alternative</a>
-                      </li>
-                    </ul>
-                  </div>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../widgets.html">
-                    <i class="ni ni-archive-2 text-green"></i>
-                    <span class="nav-link-text">Widgets</span>
+                  <a class="nav-link" href="/team">
+                    <i class="ni ni-single-02 text-pink"></i>
+                    <span class="nav-link-text">Team</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../charts.html">
-                    <i class="ni ni-chart-pie-35 text-info"></i>
-                    <span class="nav-link-text">Charts</span>
+
+                  <a class="nav-link" href="/landingPage">
+                    <i class="ni ni-world-2 text-green"></i>
+                    <span class="nav-link-text">LandingPage</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../calendar.html">
-                    <i class="ni ni-calendar-grid-58 text-red"></i>
-                    <span class="nav-link-text">Calendar</span>
+                  <a class="nav-link" href="/trafic">
+                    <i class="ni ni-chart-bar-32 text-info"></i>
+                    <span class="nav-link-text">Trafic</span>
                   </a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/statusOrder">
+                    <i class="ni ni-archive-2 text-red "></i>
+                    <span class="nav-link-text">Status Order</span>
+                  </a>
+                </li>
+                
+                
               </ul>
               <!-- Divider -->
               <hr class="my-3">
-              <!-- Heading -->
-              <h6 class="navbar-heading p-0 text-muted">Documentation</h6>
-              <!-- Navigation -->
-              <ul class="navbar-nav mb-md-3">
-                <li class="nav-item">
-                  <a class="nav-link" href="../../docs/getting-started/overview.html" target="_blank">
-                    <i class="ni ni-spaceship"></i>
-                    <span class="nav-link-text">Getting started</span>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../../docs/foundation/colors.html" target="_blank">
-                    <i class="ni ni-palette"></i>
-                    <span class="nav-link-text">Foundation</span>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../../docs/components/alerts.html" target="_blank">
-                    <i class="ni ni-ui-04"></i>
-                    <span class="nav-link-text">Components</span>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../../docs/plugins/charts.html" target="_blank">
-                    <i class="ni ni-chart-pie-35"></i>
-                    <span class="nav-link-text">Plugins</span>
-                  </a>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
@@ -129,7 +99,7 @@
                       <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="media align-items-center">
                           <span class="avatar avatar-sm rounded-circle">
-                            <img alt="Image placeholder" src="<?php echo e(asset('memberPanel/img/theme/team-1.jpg')); ?>">
+                            <img alt="Image placeholder" src="https://png.pngtree.com/element_origin_min_pic/20/04/20/165716f6669e9fd.jpg">
                           </span>
                           <div class="media-body ml-2 d-none d-lg-block">
                             <span class="mb-0 text-sm  font-weight-bold"><?php echo e(Auth::user()->nama); ?></span>
@@ -140,7 +110,7 @@
                         <div class="dropdown-header noti-title">
                           <h6 class="text-overflow m-0">Welcome!</h6>
                         </div>
-                        <a href="#!" class="dropdown-item">
+                        <a href="/profile" class="dropdown-item">
                           <i class="ni ni-single-02"></i>
                           <span>My profile</span>
                         </a>

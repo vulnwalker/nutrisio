@@ -23,22 +23,29 @@ class ArtikelController extends Controller
     public function index($id)
     {
 
-    $cekTrafic = Trafic::select('trafic.*')->where('unique_id',$_COOKIE['PHPSESSID'])->count();
-    
+      $cookieValue= md5(date("Y-m-d H:i:s"));
+      if (!isset($_COOKIE['sessionID'])) {
+        // setcookie("sessionID", $cookieValue,99999999999);
+        $sessionIDSession = $cookieValue;
+      }else{
+        $sessionIDSession = $_COOKIE['sessionID'];
+      }
+
+    $cekTrafic = Trafic::select('trafic.*')->where('unique_id',$sessionIDSession)->count();
+    $cekEmail = User::select('users.*')->where('email',Param::hexDecode(@$_GET['ref']))->get();
     if ($cekTrafic == 0) {
         if (!empty(@$_GET['ref'])) {
-            $cekEmail = User::select('users.*')->where('email',Param::hexDecode(@$_GET['ref']))->get();
-            Trafic::where('#')->insert(array('id_member' => $cekEmail[0]->id, 'unique_id' => $_COOKIE['PHPSESSID'],'tanggal' => date("Y-m-d"),'id_artikel' =>''));
+            Trafic::where('#')->insert(array('id_member' => $cekEmail[0]->id, 'unique_id' => $sessionIDSession,'tanggal' => date("Y-m-d"),'id_artikel' =>$id));
         }else{
-            Trafic::where('#')->insert(array('id_member' => '0', 'unique_id' => $_COOKIE['PHPSESSID'],'tanggal' => date("Y-m-d"),'id_artikel' =>''));
+            Trafic::where('#')->insert(array('id_member' => '0', 'unique_id' => $sessionIDSession,'tanggal' => date("Y-m-d"),'id_artikel' =>$id));
         }
-        
+
     }else{
-        $cekTraficData = Trafic::select('trafic.*')->where('unique_id',$_COOKIE['PHPSESSID'])->get();
+        $cekTraficData = Trafic::select('trafic.*')->where('unique_id',$sessionIDSession)->get();
         if (!empty(@$_GET['ref']) && $cekTraficData[0]->id_member == 0) {
             $cekEmail = User::select('users.*')->where('email',Param::hexDecode(@$_GET['ref']))->get();
             // $traficUpdate = App\Trafic::where('unique_id', session()->getId())->first();
-            Trafic::where('unique_id', $_COOKIE['PHPSESSID'])->update(['id_member' => $cekEmail[0]->id]);
+            Trafic::where('unique_id', $sessionIDSession)->update(['id_member' => $cekEmail[0]->id]);
             // $traficUpdate->id_member = $cekEmail[0]->id;
             // $traficUpdate->save();
         }else{
@@ -46,7 +53,8 @@ class ArtikelController extends Controller
         }
     }
 
-        $artikel = DB::table('artikel')->where('id', $id)->get();       
+
+        $artikel = DB::table('artikel')->where('id', $id)->get();
         return view('content.artikel',compact('artikel'));
     }
 }

@@ -75,7 +75,7 @@
                                                                 <?php echo e($cart->nama_produk); ?>  <strong class="product-quantity">× <?php echo e($cart->qty); ?></strong> 
                                                             </td>
                                                             <td class="product-total">
-                                                                <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">Rp</span> <?php echo e($cart->harga); ?></span>
+                                                                <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">Rp</span> <?php echo e(number_format($cart->harga,0," ",".")); ?></span>
 
                                                             </td>
                                                         </tr>
@@ -85,14 +85,14 @@
 
                                                         <tr class="cart-subtotal">
                                                             <th>Subtotal</th>
-                                                            <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">Rp </span><?php echo e($total[0]->totalHarga); ?></span>
+                                                            <td><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">Rp </span> <?php echo e(number_format($total[0]->totalHarga,0," ",".")); ?></span>
                                                                 <input type="hidden" class="input-text " name="sub_total" id="sub_total" placeholder="" value="<?php echo e($total[0]->totalHarga); ?>" autocomplete="postal-code">
                                                             </td>
                                                         </tr>
 
                                                         <tr class="order-total">
                                                             <th>Total</th>
-                                                            <td><strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">Rp </span><?php echo e($total[0]->totalHarga); ?></span></strong> </td>
+                                                            <td><strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">Rp </span><?php echo e(number_format($total[0]->totalHarga,0," ",".")); ?></span></strong> </td>
                                                         </tr>
 
                                                     </tfoot>
@@ -108,6 +108,15 @@
                                                                 <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
                                                             </div>
                                                         </li>
+                                                        <li class="wc_payment_method payment_method_cod">
+                                                            <input checked id="payment_method_cod" type="radio" class="input-radio" name="payment_method" value="dijemput" data-order_button_text="">
+
+                                                            <label for="payment_method_cod">
+                                                                Dijemput </label>
+                                                            <div class="payment_box payment_method_cod" style="display:none;">
+                                                                <p>Pay with cash upon delivery.</p>
+                                                            </div>
+                                                        </li>
                                                         <li class="wc_payment_method payment_method_cheque">
                                                             <input id="payment_method_cheque" type="radio" class="input-radio" name="payment_method" value="dikirim" data-order_button_text="">
                                                            
@@ -115,15 +124,6 @@
                                                                 Dikirim </label>
                                                             <div class="payment_box payment_method_cheque" style="display:none;">
                                                                 <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
-                                                            </div>
-                                                        </li>
-                                                        <li class="wc_payment_method payment_method_cod">
-                                                            <input id="payment_method_cod" type="radio" class="input-radio" name="payment_method" value="dijemput" data-order_button_text="">
-
-                                                            <label for="payment_method_cod">
-                                                                Dijemput </label>
-                                                            <div class="payment_box payment_method_cod" style="display:none;">
-                                                                <p>Pay with cash upon delivery.</p>
                                                             </div>
                                                         </li>
                                                     </ul>
