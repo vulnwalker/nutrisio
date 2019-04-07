@@ -18,10 +18,10 @@
                       <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                           <tr>
-                            <th scope="col" class="sort" data-sort="name">No</th>
-                            <th scope="col" class="sort" data-sort="budget">Uniq ID</th>
-                            <th scope="col" class="sort" data-sort="status">Url</th>
-                            <th scope="col" class="sort" data-sort="status">Artikel</th>
+                            <th scope="col">No</th>
+                            <th scope="col">Uniq ID</th>
+                            <th scope="col">Url</th>
+                            <th scope="col">Artikel</th>
                           </tr>
                         </thead>
                         <tbody class="list">
@@ -51,6 +51,7 @@
 
                         </tbody>
                       </table>
+                      {{ $dataTrafics->links() }}
                     </div>
                   </div>
                 </div>

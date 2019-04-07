@@ -1,4 +1,3 @@
-<?php /* /var/www/html/nutrisio.rm-rf.studio/resources/views/template/javascript.blade.php */ ?>
             <script type='text/javascript' src="<?php echo e(asset('asset-content/plugins/contact-form-7/includes/js/scripts1748.js?ver=5.0.5')); ?>"></script>
 
             <script type='text/javascript' src="<?php echo e(asset('asset-content/plugins/email-subscribers/widget/es-widget-page8e83.js?ver=4.9.10')); ?>"></script>
@@ -55,3 +54,8 @@
             <script type='text/javascript' src="<?php echo e(asset('asset-content/plugins/woocommerce/assets/js/frontend/add-to-cart-variation.min9d52.js?ver=3.5.1')); ?>"></script>
 
             <script type='text/javascript' src="<?php echo e(asset('asset-content/plugins/woocommerce/assets/js/frontend/single-product.min9d52.js?ver=3.5.1')); ?>"></script>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+
+<?php /* /var/www/html/nutrisio.rm-rf.studio/resources/views/template/javascript.blade.php */ ?>

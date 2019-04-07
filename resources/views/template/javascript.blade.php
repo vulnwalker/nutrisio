@@ -54,3 +54,6 @@
             <script type='text/javascript' src="{{ asset('asset-content/plugins/woocommerce/assets/js/frontend/add-to-cart-variation.min9d52.js?ver=3.5.1')}}"></script>
 
             <script type='text/javascript' src="{{ asset('asset-content/plugins/woocommerce/assets/js/frontend/single-product.min9d52.js?ver=3.5.1')}}"></script>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+

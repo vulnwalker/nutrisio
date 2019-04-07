@@ -1,6 +1,5 @@
-<?php /* /var/www/html/nutrisio.rm-rf.studio/resources/views/layouts/app.blade.php */ ?>
 <!DOCTYPE html>
-<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
+<html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
   <title>Member Panel</title>
@@ -16,11 +15,25 @@
   <link rel="stylesheet" href="<?php echo e(asset('memberPanel/css/argon.mine209.css?v=1.0.0')); ?>" type="text/css">
   <!-- Google Tag Manager -->
   <!-- End Google Tag Manager -->
+
+<style type="text/css">
+  svg {
+  pointer-events: none;
+}
+</style>
+    <script src="<?php echo e(asset('memberPanel/vendor/jquery/dist/jquery.min.js')); ?>"></script>
+        <script src="<?php echo e(asset('vendor/bootstrap/js/bootstrap.min.js')); ?>"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.2/umd/popper.min.js"></script>
+     <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js" ></script>
+
+
+
+
+       
 </head>
 
 <body>
-    <div id="app">
-      <nav class="sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+      <nav class="nav sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light bg-white" id="sidenav-main">
         <div class="scrollbar-inner">
           <!-- Brand -->
           <div class="sidenav-header d-flex align-items-center">
@@ -42,7 +55,7 @@
             <!-- Collapse -->
             <div class="collapse navbar-collapse" id="sidenav-collapse-main">
               <!-- Nav items -->
-              <ul class="navbar-nav">
+              <ul class="nav navbar-nav">
                 <li class="nav-item">
                   <a class="nav-link active" href="/home">
                     <i class="ni ni-shop text-primary"></i>
@@ -84,18 +97,29 @@
         </div>
      </nav>
 
-    <div class="main-content" id="panel">
-        <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+  <!-- Main content -->
+    <div class="main-content" >
+        <nav class="nav navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
               <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <!-- Search form -->
 
                   <!-- Navbar links -->
-                  <ul class="navbar-nav align-items-center ml-md-auto">
-                
+                  <ul class="nav navbar-nav align-items-center ml-md-auto" >
+                    <li class="nav-item d-xl-none">
+                      <!-- Sidenav toggler -->
+                      <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
+                        <div class="sidenav-toggler-inner">
+                          <i class="sidenav-toggler-line"></i>
+                          <i class="sidenav-toggler-line"></i>
+                          <i class="sidenav-toggler-line"></i>
+                        </div>
+                      </div>
+                    </li>
                   </ul>
-                <ul class="navbar-nav align-items-center ml-auto ml-md-0">
+                <ul class="nav navbar-nav align-items-center ml-auto ml-md-0">
                     <li class="nav-item dropdown">
+
                       <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="media align-items-center">
                           <span class="avatar avatar-sm rounded-circle">
@@ -121,7 +145,7 @@
                           <i class="ni ni-user-run"></i>
                           <span>Logout</span>
                         </a>
-                        <form id="logout-form" action="<?php echo e(url('/logout')); ?>" method="POST" style="display: none;">
+                        <form id="logout-form" name="logout-form" action="<?php echo e(url('/logout')); ?>" method="POST" style="display: none;">
                                         <?php echo csrf_field(); ?>
                         </form>
                       </div>
@@ -134,10 +158,9 @@
 
     </div>
 
-    </div>
 
-      <script src="<?php echo e(asset('memberPanel/vendor/jquery/dist/jquery.min.js')); ?>"></script>
-      <script src="<?php echo e(asset('memberPanel/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')); ?>"></script>
+
+
       <script src="<?php echo e(asset('memberPanel/vendor/js-cookie/js.cookie.js')); ?>"></script>
       <script src="<?php echo e(asset('memberPanel/vendor/jquery.scrollbar/jquery.scrollbar.min.js')); ?>"></script>
       <script src="<?php echo e(asset('memberPanel/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js')); ?>"></script>
@@ -151,3 +174,5 @@
       <script src="<?php echo e(asset('memberPanel/js/demo.min.js')); ?>"></script>
 </body>
 </html>
+
+<?php /* /var/www/html/nutrisio.rm-rf.studio/resources/views/layouts/app.blade.php */ ?>

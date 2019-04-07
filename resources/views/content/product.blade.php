@@ -2,6 +2,11 @@
 
 @section('content')
 @include('template.navbar')
+<style type="text/css">
+	.woocommerce .quantity .qty {
+	    width: 5em;
+	}
+</style>
 <div class="p-top-bottom-100 division header-area-hide" style="margin-top: 7%;">
     <div class="container">
         <div class="row">
@@ -29,15 +34,59 @@
 
             <div class="summary entry-summary">
                 <h3 class="product_title entry-title h3-xs m-bottom-15">{{ $product->nama_produk }}</h3>
-                <p class="price"><del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">Rp</span>{{number_format($product->harga,0," ",".")}}</span></del> <ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">Rp</span>{{ number_format($product->harga,0," ",".") }}</span></ins></p>
+                <p class="price">
+									@guest
+						            <span class="price">
+						                <ins>
+							                <span class="woocommerce-Price-amount amount">
+							                    <span class="woocommerce-Price-currencySymbol">Rp </span> {{ number_format($product->harga,0," ",".") }}
+							                </span>
+							            </ins>
+						            </span>
+						            @else
+									<span class="price">
+							                 <del>
+							                    <span class="woocommerce-Price-amount amount">
+							                        <span class="woocommerce-Price-currencySymbol">Rp </span>{{ number_format($product->harga,0," ",".") }}
+							                </span>
+						            	</del>
+						                <ins>
+							                <span class="woocommerce-Price-amount amount">
+							                    <span class="woocommerce-Price-currencySymbol">Rp </span> {{ number_format($product->harga_member,0," ",".") }}
+							                </span>
+							            </ins>
+						            </span>
+						        @endguest
+                </p>
                 <div class="woocommerce-product-details__short-description">
                     <p>{{ $product->promo }}</p>
 
                 </div>
 
-                <form class="cart" action="http://jthemes.org/wp/genemy/creative/product/beanie-with-logo/" method="post" enctype="multipart/form-data">
-
+                <form class="cart" action="{{ route('addTocart') }}"  method="POST">
+                	{{ csrf_field() }}
+                	@if(!empty(Auth::user()->id))
                     <div class="quantity">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="button" class="minus count-control" value="<" onclick="minus()">
+                                </div>
+                            </div>
+
+                            <input type="text" step="1" min="1" name="jumlah" id="jumlah" value="1" title="Qty" class="form-control qty text" >
+
+                            <input type="hidden" name="id" id="id" value="{{ $product->id }}">
+
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <input type="button" class="plus count-control" data-max="-1" value=">" onclick="plus()">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @else
+					<div class="quantity">
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
@@ -45,7 +94,7 @@
                                 </div>
                             </div>
 
-                            <input type="text" step="1" min="1" name="quantity" value="1" title="Qty" class="form-control qty text" readonly="">
+                            <input type="text" step="1" min="1" name="jumlah" id="jumlah" value="1" title="Qty" class="form-control qty text" readonly>
 
                             <div class="input-group-append">
                                 <div class="input-group-text">
@@ -54,8 +103,8 @@
                             </div>
                         </div>
                     </div>
-
-                    <a href="/addTocart/{{ $product->id }}" type="submit" name="add-to-cart" value="964" class="single_add_to_cart_button button alt">Add to cart</a>
+					@endguest
+                    <button type="submit" name="add-to-cart"  class="single_add_to_cart_button button alt">Add to cart</button>
 
                 </form>
 
@@ -83,6 +132,23 @@
 </div>
 </div>
 </div>
+
+<script type="text/javascript">
+	
+    var count = 1;
+    var countEl = document.getElementById("jumlah");
+    function plus(){
+        count++;
+        countEl.value = count;
+    }
+    function minus(){
+      if (count > 1) {
+        count--;
+        countEl.value = count;
+      }  
+    }
+
+</script>
 
 @include('template.footer')
 @stop

@@ -33,9 +33,14 @@
 						            <img width="400" height="500" src="{{ $gambar }}" class="attachment-genemy-400x500-crop size-genemy-400x500-crop" alt="">
 						            <div class="loop-item-hover project-description white-color">
 						                <div class="loop-item-hover-in">
-						                 <a href="addTocart/{{ $product->id }}" data-quantity="1" class="btn btn-tra-rose product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="947" data-product_sku="woo-beanie" aria-label="Add “Beanie” to your cart" rel="nofollow" title="Add to cart" style="border: 1px solid;">
+										<form class="cart" action="{{ route('addTocart') }}"  method="POST">
+											{{ csrf_field() }}
+										 <input type="hidden" name="id" id="id" value="{{ $product->id }}">
+										 <input type="hidden" step="1" min="1" name="jumlah" id="jumlah" value="1" title="Qty" class="form-control qty text" >
+						                 <button type="submit" data-quantity="1" class="btn btn-tra-rose product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="947" data-product_sku="woo-beanie" aria-label="Add “Beanie” to your cart" rel="nofollow" title="Add to cart" style="border: 1px solid;">
 						                    Add to cart
-						                </a>
+						                </button>
+						           		</form>
 						                </div>
 						            </div>
 						            <div class="product-inner-buttons white-color">
@@ -78,19 +83,38 @@
 						            </div>
 						            <div class="item-overlay"></div>
 						        </div>
+						        
 						        <a href="product/{{ $product->id }}" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
 						            <h5 class="woocommerce-loop-product__title h5-sm m-top-30" style="margin-top: 2%;">
 						              {{ $product->nama_produk }}
 						            </h5>
-						                <span class="price"><del>
-						                    <span class="woocommerce-Price-amount amount">
-						                        <span class="woocommerce-Price-currencySymbol">Rp </span>300.000
-						                </span></del>
-						                <ins><span class="woocommerce-Price-amount amount">
-						                    <span class="woocommerce-Price-currencySymbol">Rp </span> {{ number_format($product->harga,0," ",".") }}
-						                </span></ins>
+
+						            @guest
+						            <span class="price">
+						                <ins>
+							                <span class="woocommerce-Price-amount amount">
+							                    <span class="woocommerce-Price-currencySymbol">Rp </span> {{ number_format($product->harga,0," ",".") }}
+							                    
+							                </span>
+							            </ins>
 						            </span>
+						            @else
+									<span class="price">
+							                 <del>
+							                    <span class="woocommerce-Price-amount amount">
+							                        <span class="woocommerce-Price-currencySymbol">Rp </span>{{ number_format($product->harga,0," ",".") }}
+							                </span>
+						            	</del>
+						                <ins>
+							                <span class="woocommerce-Price-amount amount">
+							                    <span class="woocommerce-Price-currencySymbol">Rp </span> {{ number_format($product->harga_member,0," ",".") }}
+							                   
+							                </span>
+							            </ins>
+						            </span>
+						        @endguest
 						        </a>
+
 						    </div>
 						</div>
 					   @endforeach

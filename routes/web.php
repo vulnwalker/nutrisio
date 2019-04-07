@@ -29,6 +29,9 @@ if (!isset($_COOKIE['sessionID'])) {
 
 // 86400 = 1 day
 
+Route::get('/about', function () {
+  return  view("content.about");
+});
 
 
 Route::get('/', function () {
@@ -62,19 +65,22 @@ Route::get('/', function () {
 
     }
   }
-
+  
     return  view("content.home");
 });
 
 Route::get('/artikel/{id}', 'ArtikelController@index')->name('artikel');
+Route::post('/getKota', 'ProductController@getKota')->name('getKota');
+Route::post('/getInfoKota', 'ProductController@getInfoKota')->name('getInfoKota');
 Route::get('/products', 'ProductController@index')->name('products');
 Route::get('/checkout', 'ProductController@checkout')->name('checkout');
 Route::get('/checkoutSuccess', 'ProductController@checkoutSuccess')->name('checkoutSuccess');
 Route::post('/checkout/store', 'ProductController@store')->name('checkoutStore');
 Route::get('/product/{id}', 'ProductController@show')->name('product');
-Route::get('/addTocart/{id}', 'ProductController@addTocart')->name('addTocart');
+Route::post('/addTocart', 'ProductController@addTocart')->name('addTocart');
 Route::get('/delDataCart/{id}', 'ProductController@delDataCart')->name('delDataCart');
 Route::get('/cart', 'ProductController@cart')->name('cart');
+Route::post('/changeQty', 'ProductController@changeQty')->name('changeQty');
 
 Auth::routes();
 

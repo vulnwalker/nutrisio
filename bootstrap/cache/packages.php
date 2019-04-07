@@ -20,13 +20,6 @@
       0 => 'Laravel\\Tinker\\TinkerServiceProvider',
     ),
   ),
-  'nesbot/carbon' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Carbon\\Laravel\\ServiceProvider',
-    ),
-  ),
   'nunomaduro/collision' => 
   array (
     'providers' => 
@@ -43,6 +36,24 @@
     'aliases' => 
     array (
       'Analytics' => 'Spatie\\Analytics\\AnalyticsFacade',
+    ),
+  ),
+  'kozz/laravel-guzzle-provider' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Kozz\\Laravel\\Providers\\Guzzle',
+    ),
+    'aliases' => 
+    array (
+      'Guzzle' => 'Kozz\\Laravel\\Facades\\Guzzle',
+    ),
+  ),
+  'nesbot/carbon' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Carbon\\Laravel\\ServiceProvider',
     ),
   ),
 );

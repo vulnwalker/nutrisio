@@ -1,7 +1,8 @@
-<?php /* /var/www/html/nutrisio.rm-rf.studio/resources/views/content/cart.blade.php */ ?>
 <?php $__env->startSection('content'); ?>
 <?php echo $__env->make('template.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-
+ <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 <div class="p-top-bottom-100 division header-area-hide" style="margin-top: 6%;">
     <div class="container">
         <div class="row">
@@ -26,6 +27,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        <?php $hargaTotal=0; ?>
                                         <?php $__currentLoopData = $carts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cart): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <tr class="woocommerce-cart-form__cart-item cart_item">
 
@@ -34,12 +36,36 @@
 
                                                 <td class="product-name" data-title="Product">
                                                     <a href="/product/<?php echo e($cart->id); ?>"><?php echo e($cart->nama_produk); ?></a> </td>
-
+                                                <?php if(!empty(Auth::user()->id)): ?>
+                                                <td class="product-price" data-title="Price">
+                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">Rp </span><?php echo e(number_format( $cart->harga_member,0," ",".")); ?></span>
+                                                </td>
+                                                <?php else: ?>
                                                 <td class="product-price" data-title="Price">
                                                     <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">Rp </span><?php echo e(number_format( $cart->harga,0," ",".")); ?></span>
                                                 </td>
+                                                <?php endif; ?>
 
                                                 <td class="product-quantity" data-title="Quantity">
+                                                    <?php if(!empty(Auth::user()->id)): ?>
+                                                    <div class="quantity">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="button" class="minus count-control" value="<" onclick="minus('<?php echo $cart->id; ?>')">
+                                                                </div>
+                                                            </div>
+
+                                                            <input type="text" step="1" min="1" name="jumlah" id="jumlah<?php echo e($cart->id); ?>" value="<?php echo e($cart->qty); ?>" title="Qty" class="form-control qty text" onkeyup="enter('<?php echo $cart->id; ?>')">
+
+                                                            <div class="input-group-append">
+                                                                <div class="input-group-text">
+                                                                    <input type="button" class="plus count-control" data-max="-1" value=">" onclick="plus('<?php echo $cart->id; ?>')">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <?php else: ?>
                                                     <div class="quantity">
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
@@ -48,7 +74,7 @@
                                                                 </div>
                                                             </div>
 
-                                                            <input type="text" step="1" min="0" name="cart[ef4e3b775c934dada217712d76f3d51f][qty]" value="1" title="Qty" class="form-control qty text" readonly="">
+                                                            <input type="text" step="1" min="1" name="jumlah" id="jumlah" value="1" title="Qty" class="form-control qty text" readonly>
 
                                                             <div class="input-group-append">
                                                                 <div class="input-group-text">
@@ -57,12 +83,24 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <?php endif; ?>
 
                                                 </td>
-
+                                                <?php if(!empty(Auth::user()->id)): ?>
+                                                <?php $hargaTotal = $hargaTotal + ($cart->harga_member * $cart->qty); ?>
                                                 <td class="product-subtotal" data-title="Total">
+                                                    <input type="hidden" id="hargaProduk<?php echo e($cart->id); ?>" value="<?php echo e($cart->harga_member); ?>">
+                                                    <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">Rp <span id='totalProduk<?php echo e($cart->id); ?>'>
+                                                        <?php echo e(number_format( $cart->harga_member * $cart->qty,0," ",".")); ?>
+
+                                                    </span></span></span>
+                                                </td>
+                                                <?php else: ?>
+                                                <?php $hargaTotal = $hargaTotal + ($cart->harga *1); ?>
+                                                 <td class="product-subtotal" data-title="Total">
                                                     <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">Rp </span><?php echo e(number_format( $cart->harga * 1,0," ",".")); ?></span>
                                                 </td>
+                                                <?php endif; ?>
                                             </tr>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             <tr>
@@ -79,20 +117,16 @@
                                 <div class="cart-collaterals">
                                     <div class="cart_totals ">
 
-                                        <h2>Cart totals</h2>
+                                        <h2>Cart totals </h2>
 
                                         <table cellspacing="0" class="shop_table shop_table_responsive table">
 
                                             <tbody>
                                                 <tr class="cart-subtotal">
-                                                    <th>Subtotal</th>
-                                                    <td data-title="Subtotal"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">Rp </span><?php echo e(number_format($total[0]->totalHarga,0," ",".")); ?></span>
-                                                    </td>
-                                                </tr>
-
-                                                <tr class="order-total">
                                                     <th>Total</th>
-                                                    <td data-title="Total"><strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">Rp</span> <?php echo e(number_format( $total[0]->totalHarga,0," ",".")); ?> </span></strong> </td>
+                                                    <td data-title="Subtotal"><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">Rp </span>
+                                                        <span id="totalCart"><?php echo e(number_format($hargaTotal,0," ",".")); ?> </span></span>
+                                                    </td>
                                                 </tr>
 
                                             </tbody>
@@ -121,7 +155,114 @@
     <!-- End container -->
 </div>
 
+
+<script type="text/javascript">
+    function currencyFormatDE(num) {
+      return (
+        num
+          .toFixed(0) // always two decimal digits
+          .replace(',', '.') // replace decimal point character with ,
+          .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
+      ) // use . as a separator
+    }
+
+    function enter(idSpan){
+        var hargaSebelumnya = parseInt($("#totalProduk"+idSpan).text().replace(/\./g, ''));
+        var hargaProduk = document.getElementById("hargaProduk"+idSpan).value;
+        var count = document.getElementById("jumlah"+idSpan).value;
+        var countEl = document.getElementById("jumlah"+idSpan);
+        countEl.value = count;
+        var totalProduk = parseInt(hargaProduk * count);
+        $("#totalProduk"+idSpan).html(currencyFormatDE(totalProduk));
+        $("#totalCart").text(currencyFormatDE(parseInt($("#totalCart").text().replace(/\./g, '')) - hargaSebelumnya + totalProduk));
+
+        $.ajaxSetup({
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+          });
+        $.ajax({
+            url: "/changeQty",
+            data: {
+                "id": idSpan,
+                "jumlah": $("#jumlah"+idSpan).val(),
+                "action": "tambah",
+            },
+            type: "post",
+            // dataType: "json",
+            success: function(data){
+                
+            }
+        });
+    }
+
+    function plus(idSpan){
+        var hargaSebelumnya = parseInt($("#totalProduk"+idSpan).text().replace(/\./g, ''));
+        var hargaProduk = document.getElementById("hargaProduk"+idSpan).value;
+        var count = document.getElementById("jumlah"+idSpan).value;
+        var countEl = document.getElementById("jumlah"+idSpan);
+        count++;
+        countEl.value = count;
+        var totalProduk = parseInt(hargaProduk * count);
+        $("#totalProduk"+idSpan).html(currencyFormatDE(totalProduk));
+        $("#totalCart").text(currencyFormatDE(parseInt($("#totalCart").text().replace(/\./g, '')) - hargaSebelumnya + totalProduk));
+    
+        $.ajaxSetup({
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+          });
+        $.ajax({
+            url: "/changeQty",
+            data: {
+                "id": idSpan,
+                "jumlah": $("#jumlah"+idSpan).val(),
+                "action": "tambah",
+            },
+            type: "post",
+            // dataType: "json",
+            success: function(data){
+                
+            }
+        });
+    }
+    function minus(idSpan){
+          var hargaSebelumnya = parseInt($("#totalProduk"+idSpan).text().replace(/\./g, ''));
+          var hargaProduk = document.getElementById("hargaProduk"+idSpan).value;
+          var count = document.getElementById("jumlah"+idSpan).value;
+          var countEl = document.getElementById("jumlah"+idSpan);
+          if (count > 1) {
+            count--;
+            countEl.value = count;
+          }
+
+        var totalProduk = parseInt(hargaProduk * count);
+        $("#totalProduk"+idSpan).html(currencyFormatDE(totalProduk));
+        $("#totalCart").text(currencyFormatDE(parseInt($("#totalCart").text().replace(/\./g, '')) - hargaSebelumnya + totalProduk)); 
+
+        $.ajaxSetup({
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+          });
+        $.ajax({
+            url: "/changeQty",
+            data: {
+                "id": idSpan,
+                "jumlah": $("#jumlah"+idSpan).val(),
+                "action": "tambah",
+            },
+            type: "post",
+            // dataType: "json",
+            success: function(data){
+                
+            }
+        });
+    }
+
+</script>
 <?php echo $__env->make('template.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('welcome', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php /* /var/www/html/nutrisio.rm-rf.studio/resources/views/content/cart.blade.php */ ?>

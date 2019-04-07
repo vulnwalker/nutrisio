@@ -28,6 +28,10 @@ class ComposerStaticInit1356491ce4ec1229f72b139d69d9653e
     );
 
     public static $prefixLengthsPsr4 = array (
+        'r' => 
+        array (
+            'rizalafani\\rajaongkirlaravel\\' => 29,
+        ),
         'p' => 
         array (
             'phpseclib\\' => 10,
@@ -149,6 +153,10 @@ class ComposerStaticInit1356491ce4ec1229f72b139d69d9653e
     );
 
     public static $prefixDirsPsr4 = array (
+        'rizalafani\\rajaongkirlaravel\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/rizalafani/rajaongkirlaravel/src',
+        ),
         'phpseclib\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib',
@@ -13065,6 +13073,13 @@ class ComposerStaticInit1356491ce4ec1229f72b139d69d9653e
         'phpseclib\\Net\\SSH2' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/Net/SSH2.php',
         'phpseclib\\System\\SSH\\Agent' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/System/SSH/Agent.php',
         'phpseclib\\System\\SSH\\Agent\\Identity' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/System/SSH/Agent/Identity.php',
+        'rizalafani\\rajaongkirlaravel\\RajaOngkir' => __DIR__ . '/..' . '/rizalafani/rajaongkirlaravel/src/RajaOngkir.php',
+        'rizalafani\\rajaongkirlaravel\\RajaOngkirFacade' => __DIR__ . '/..' . '/rizalafani/rajaongkirlaravel/src/RajaOngkirFacade.php',
+        'rizalafani\\rajaongkirlaravel\\RajaOngkirServiceProvider' => __DIR__ . '/..' . '/rizalafani/rajaongkirlaravel/src/RajaOngkirServiceProvider.php',
+        'rizalafani\\rajaongkirlaravel\\app\\Api' => __DIR__ . '/..' . '/rizalafani/rajaongkirlaravel/src/app/Api.php',
+        'rizalafani\\rajaongkirlaravel\\app\\Cost' => __DIR__ . '/..' . '/rizalafani/rajaongkirlaravel/src/app/Cost.php',
+        'rizalafani\\rajaongkirlaravel\\app\\Kota' => __DIR__ . '/..' . '/rizalafani/rajaongkirlaravel/src/app/Kota.php',
+        'rizalafani\\rajaongkirlaravel\\app\\Provinsi' => __DIR__ . '/..' . '/rizalafani/rajaongkirlaravel/src/app/Provinsi.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

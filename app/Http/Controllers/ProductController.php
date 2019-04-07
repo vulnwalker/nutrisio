@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Product;
 
 use DB;
+use RajaOngkir;
 use App\Trafic;
 use App\Param;
 use App\User;
@@ -82,15 +83,18 @@ class ProductController extends Controller
         return view('content.product',compact('setting'))->with('product', $product);
     }
 
-    public function  addTocart($id){
-        DB::table('cart')->where('#')->insert(array('qty'=>1,'id_produk' => $id, 'session_id' => $_COOKIE['sessionID']));
+    public function  addTocart(Request $request){
+        $id = $request->id;
+        $jumlah = $request->jumlah;
+        DB::table('cart')->where('#')->insert(array('qty'=>$jumlah,'id_produk' => $id, 'session_id' => $_COOKIE['sessionID']));
 
         return redirect('cart');
     }
 
     public function cart(){
-        $carts = Cart::select('cart.*','produk.harga','produk.nama_produk')->join('produk', 'produk.id', '=', 'cart.id_produk')->where('session_id' , $_COOKIE['sessionID'])->get();
+        $carts = Cart::select('cart.*','produk.harga_member','produk.harga','produk.nama_produk')->join('produk', 'produk.id', '=', 'cart.id_produk')->where('session_id' , $_COOKIE['sessionID'])->get();
         $total = Cart::select(DB::raw('SUM(produk.harga) as totalHarga'))->join('produk', 'produk.id', '=', 'cart.id_produk')->where('session_id' , $_COOKIE['sessionID'])->get();
+        
         return view('content.cart',compact("carts","total"));
     }
 
@@ -104,15 +108,26 @@ class ProductController extends Controller
     {
         $carts = Cart::select('cart.*','produk.harga','produk.nama_produk')->join('produk', 'produk.id', '=', 'cart.id_produk')->where('session_id' , $_COOKIE['sessionID'])->get();
         $total = Cart::select(DB::raw('SUM(produk.harga) as totalHarga'))->join('produk', 'produk.id', '=', 'cart.id_produk')->where('session_id' , $_COOKIE['sessionID'])->get();
-        return view('content.checkout',compact("carts","total"));
+
+        $dataProvinsi = RajaOngkir::Provinsi()->all();
+
+        return view('content.checkout',compact("carts","total","dataProvinsi"));
+        // echo json_encode($dataProvinsi);
+
     }
 
     public function store(Request $request)
     {
         if ($request->payment_method == "dijemput") {
            $ongkir = 0;
+           $kota = $request->hiddenKota;
+           $provinsi =  $request->hiddenProv;
+           $metodePengiriman = "DIJEMPUT";
         }else if ($request->payment_method == "dikirim") {
-           $ongkir = 11000;
+          $provinsi =  $request->hiddenProv;
+          $kota = $request->hiddenKota;
+          $metodePengiriman = $request->metodePengiriman;
+           $ongkir = $request->ongkirValue;
         }else{
            $ongkir = 0;
         }
@@ -125,8 +140,8 @@ class ProductController extends Controller
             'nomor_telepon' => $request->phone,
             'alamat_pengiriman' => $request->alamat,
             'kecamatan_pengiriman' => $request->kecamatan,
-            'kota_pengiriman' => $request->kota,
-            'provinsi_pengiriman' => $request->provinsi,
+            'kota_pengiriman' => $kota,
+            'provinsi_pengiriman' => $provinsi,
             'kode_pos_pengiriman' => $request->kode_pos,
             'tanggal' => date("Y-m-d"),
             'sub_total' => $request->sub_total,
@@ -135,7 +150,7 @@ class ProductController extends Controller
             'status' => 'PENDING',
             'id_trafic' => $getIdTrafik[0]->id,
             'id_admin' => '',
-            'service_pengiriman' => 'DIJEMPUT',
+            'service_pengiriman' => $metodePengiriman,
         ));
 
         $query = Cart::select('cart.*','produk.harga','produk.nama_produk')->join('produk', 'produk.id', '=', 'cart.id_produk');
@@ -165,5 +180,42 @@ class ProductController extends Controller
     {
         $penjualan = DB::table('penjualan')->orderBy('id', 'desc')->get();
         return view('content.checkoutSuccess',compact('penjualan'));
+    }
+
+    public function getKota(Request $request)
+    {
+        $dataKota = RajaOngkir::Kota()->byProvinsi($request->id_prov)->get();
+
+        $jsonKota = array('dataKota' => $dataKota,
+        );
+
+        return json_encode($jsonKota);
+    }
+
+    public function getInfoKota(Request $request)
+    {
+       // $getBerat = RajaOngkir::Kota()->find($request->id_kota);
+
+        $getBerat = Cart::select(DB::raw('SUM(produk.berat) as totalBerat'))->join('produk', 'produk.id', '=', 'cart.id_produk')->where('session_id' , $_COOKIE['sessionID'])->get();
+
+        $getInfoKota = RajaOngkir::Cost([
+            'origin'        => 22,
+            'destination'   => $request->id_kota,
+            'weight'        => $getBerat[0]->totalBerat,
+            'courier'       => 'jne',
+        ])->get();
+
+        $jsonKota = array('getInfoKota' => $getInfoKota,
+        );
+
+        return str_replace("value", "hargaOngkir", json_encode($jsonKota));
+    }
+
+    public function changeQty(Request $request)
+    {
+       
+        Cart::where('session_id', $_COOKIE['sessionID'])->where('id', $request->id)->update(['qty' => $request->jumlah]);
+        $array = array('success' => 1);
+        return json_encode($array);
     }
   }

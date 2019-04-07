@@ -18,9 +18,9 @@
                       <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                           <tr>
-                            <th scope="col" class="sort" data-sort="name">No</th>
-                            <th scope="col" class="sort" data-sort="budget">Judul</th>
-                            <th scope="col" class="sort" data-sort="status">Url</th>
+                            <th scope="col">No</th>
+                            <th scope="col">Judul</th>
+                            <th scope="col">Url</th>
                           </tr>
                         </thead>
                         <tbody class="list">

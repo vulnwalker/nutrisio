@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use DB;
 use Auth;
 use App\Param;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class HomeController extends Controller
 {
@@ -74,14 +75,33 @@ class HomeController extends Controller
 
                 }
         }
-       return view('contentMember.team',compact("dataMember"));
+
+                // Get current page form url e.x. &page=1
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+ 
+        // Create a new Laravel collection from the array data
+        $itemCollection = collect($dataMember);
+ 
+        // Define how many items we want to be visible in each page
+        $perPage = 50;
+ 
+        // Slice the collection to get the items to display in current page
+        $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
+ 
+        // Create our paginator and pass it to the view
+        $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
+ 
+        // set url path for generted links
+        $paginatedItems->setPath("team/");
+
+       return view('contentMember.team',compact("paginatedItems"));
     }
 
     public function landingPage()
     {
         $user = Auth::user();
         $email = Param::hexEncode($user->email);
-        $dataArtikels = DB::table('artikel')->get();
+        $dataArtikels = DB::table('artikel')->get()->sortByDesc('id');
         $urlWeb = DB::table('setting')->where('nama', 'URL_ARTIKEL')->get();
         return view('contentMember.landingPage',compact("dataArtikels","urlWeb","email"));
     }
@@ -89,7 +109,7 @@ class HomeController extends Controller
     public function trafic()
     {
         $user = Auth::user();
-        $dataTrafics = DB::table('trafic','artikel')->select('trafic.*','artikel.judul')->join('artikel', 'artikel.id', '=', 'trafic.id_artikel')->where('trafic.id_member', $user->id)->get();
+        $dataTrafics = DB::table('trafic','artikel')->select('trafic.*','artikel.judul')->join('artikel', 'artikel.id', '=', 'trafic.id_artikel')->where('trafic.id_member', $user->id)->paginate(1);
         return view('contentMember.trafic',compact("dataTrafics"));
     
     }
@@ -117,7 +137,7 @@ class HomeController extends Controller
 
     public function statusOrder()
     {
-        $dataPenjualans = DB::table('penjualan')->get();
+        $dataPenjualans = DB::table('penjualan')->get()->sortByDesc('id');
         return view('contentMember.orderStatus',compact("dataPenjualans"));
     }
 
@@ -125,6 +145,9 @@ class HomeController extends Controller
     {
         $dataPenjualans = DB::table('detail_penjualan','penjualan','produk.nama_produk')->join('penjualan', 'penjualan.id', '=', 'detail_penjualan.id_penjualan')->join('produk', 'produk.id', '=', 'detail_penjualan.id_produk')->where('detail_penjualan.id_penjualan',$id)->get();
         $atasNama = "#".$id." ".$dataPenjualans[0]->nama_pembeli;
-        return view('contentMember.detailPenjualan',compact("dataPenjualans","atasNama"));
+
+        $getOngkir = DB::table('penjualan')->where('id',$id)->get();
+        $getTotal = DB::table('detail_penjualan')->where('id_penjualan',$id)->sum('total');
+        return view('contentMember.detailPenjualan',compact("dataPenjualans","atasNama","getTotal","getOngkir"));
     }
 }

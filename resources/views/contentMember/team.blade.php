@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
+
 @section('content')
+     <script type="text/javascript">
+        $(document).ready(function(){
+          $(".dropdown-toggle").dropdown();
+        });
+     </script>
+     
         <div class="header pb-6">
           <div class="container-fluid" style="margin-top: 2%;">
           </div>
@@ -14,21 +21,21 @@
                       <h3 class="mb-0">MY TEAM</h3>
                     </div>
                     <!-- Light table -->
-                    <div class="table-responsive" data-toggle="list" data-list-values='["name", "budget", "status", "completion"]'>
+                    <div class="table-responsive" >
                       <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                           <tr>
-                            <th scope="col" class="sort" data-sort="name">No</th>
-                            <th scope="col" class="sort" data-sort="budget">Tanggal</th>
-                            <th scope="col" class="sort" data-sort="status">Nama</th>
+                            <th scope="col">No</th>
+                            <th scope="col">Tanggal</th>
+                            <th scope="col">Nama</th>
                             <th scope="col">Email</th>
                           </tr>
                         </thead>
-                        <tbody class="list">
+                        <tbody>
                           <?php
                             $no = 1;
                           ?>
-                        @foreach($dataMember as $dataMembers)
+                        @foreach($paginatedItems as $dataMembers)
                           <tr>
                             <th scope="row">
                               <?php echo $no; ?>
@@ -51,6 +58,7 @@
 
                         </tbody>
                       </table>
+                      {{ $paginatedItems->links() }}
                     </div>
                   </div>
                 </div>

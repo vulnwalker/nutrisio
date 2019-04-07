@@ -93,9 +93,9 @@
                       <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                           <tr>
-                            <th scope="col" class="sort" data-sort="name">No</th>
-                            <th scope="col" class="sort" data-sort="budget">Tanggal</th>
-                            <th scope="col" class="sort" data-sort="status">Nama</th>
+                            <th scope="col">No</th>
+                            <th scope="col">Tanggal</th>
+                            <th scope="col">Nama</th>
                             <th scope="col">Email</th>
                           </tr>
                         </thead>

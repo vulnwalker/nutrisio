@@ -32,7 +32,8 @@
     <link rel='stylesheet' id='js_composer_front-css' href="{{ asset('asset-content/plugins/js_composer/assets/css/js_composer.min24b2.css?ver=5.5.5') }}" type='text/css' media='all' />
     <link rel='stylesheet' id='cp-module-main-style-css' href="{{ asset('asset-content/plugins/convertplug/modules/assets/css/cp-module-maine485.css?ver=3.3.6') }}" type='text/css' media='all' />
     <link rel='stylesheet' id='smile-modal-style-css' href="{{ asset('asset-content/plugins/convertplug/modules/modal/assets/css/modal.mine485.css?ver=3.3.6') }}" type='text/css' media='all' />
-    <script type='text/javascript' src="{{ asset('asset-includes/js/jquery/jqueryb8ff.js?ver=1.12.4') }}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- <script type='text/javascript' src="{{ asset('asset-includes/js/jquery/jqueryb8ff.js?ver=1.12.4') }}"></script> -->
     <script type='text/javascript' src="{{ asset('asset-includes/js/jquery/jquery-migrate.min330a.js?ver=1.4.1') }}"></script>
     <script type='text/javascript' src="{{ asset('asset-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min44fd.js?ver=2.70') }}"></script>
     <script type='text/javascript' src="{{ asset('asset-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min9d52.js?ver=3.5.1') }}"></script>
@@ -41,6 +42,7 @@
 
     <link rel="alternate" type="application/json+oembed" href="{{ asset('asset-json/oembed/1.0/embed119e.json?url=http%3A%2F%2Fjthemes.org%2Fasset%2Fgenemy%2Fcreative%2Flanding%2Fdesign-studio%2F')}}" />
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
     <style type="text/css">
         .rose-color, .rose-color h2, .rose-color h3, .rose-color h4, .rose-color h5, .rose-color h6, .rose-color p, .rose-color a, .rose-color li, .rose-color i, .white-color .rose-color, .rose-color span {
             color: #1397ce;
