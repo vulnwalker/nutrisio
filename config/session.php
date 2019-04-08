@@ -156,7 +156,7 @@ return [
     |
     */
 
-    'domain' => env('SESSION_DOMAIN', "nutrisio.rm-rf.studio"),
+    'domain' => env('SESSION_DOMAIN', "nutrisio.pt-sch.com"),
 
     /*
     |--------------------------------------------------------------------------

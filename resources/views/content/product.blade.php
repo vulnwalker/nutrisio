@@ -96,6 +96,8 @@
 
                             <input type="text" step="1" min="1" name="jumlah" id="jumlah" value="1" title="Qty" class="form-control qty text" readonly>
 
+                            <input type="hidden" name="id" id="id" value="{{ $product->id }}">
+                            
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <input type="button" class="plus count-control" data-max="-1" value=">">

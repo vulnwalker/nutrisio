@@ -63,13 +63,18 @@ class HomeController extends Controller
         $dataMember = array();
         foreach ($getMembers as $getMember) {
             $dataUpline = json_decode($getMember->upline);
-
+            
                 if ($dataUpline[3]->LEVEL4 == $user->id) {
+                    // $downline = DB::table('users')->where('uplines', 'LIKE',`'%"LEVEL4": "$getMember->id"%'`)->count('id');
+                    $wasu= '%"LEVEL4": "'.$getMember->id.'"%';
+                    $downline = DB::table('users')->select(DB::raw('COUNT(id) AS jumlah'))->where('upline', 'LIKE',"$wasu")->first();
+
                     $dataMember[] = array(
                         "id" => $getMember->id,
                         "nama" => $getMember->nama,
                         "email" => $getMember->email,
                         "tanggal_join" => $getMember->tanggal_join,
+                        "downline" => $downline->jumlah,
                     );
                 }else{
 
@@ -109,7 +114,9 @@ class HomeController extends Controller
     public function trafic()
     {
         $user = Auth::user();
-        $dataTrafics = DB::table('trafic','artikel')->select('trafic.*','artikel.judul')->join('artikel', 'artikel.id', '=', 'trafic.id_artikel')->where('trafic.id_member', $user->id)->paginate(1);
+        $topTeen = DB::table('trafic','artikel')->select('trafic.*','artikel.judul')->join('artikel', 'artikel.id', '=', 'trafic.id_artikel')->where('trafic.id_member', $user->id)->whereMonth('trafic.tanggal', date('m'))->limit(10)->get();
+        
+        $dataTrafics = DB::table('trafic','artikel')->select('trafic.*','artikel.judul')->join('artikel', 'artikel.id', '=', 'trafic.id_artikel')->where('trafic.id_member', $user->id)->whereMonth('trafic.tanggal', date('m'))->paginate(25);
         return view('contentMember.trafic',compact("dataTrafics"));
     
     }

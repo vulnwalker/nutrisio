@@ -10,6 +10,7 @@ use App\Trafic;
 use App\Param;
 use App\User;
 use App\Cart;
+use Auth;
 
 class ProductController extends Controller
 {
@@ -106,8 +107,14 @@ class ProductController extends Controller
 
     public function checkout()
     {
+        $user = Auth::user();
+        if (!empty($user->id)) {
+           $harga="harga_member";
+        }else{
+           $harga="harga";
+        }
         $carts = Cart::select('cart.*','produk.harga','produk.nama_produk')->join('produk', 'produk.id', '=', 'cart.id_produk')->where('session_id' , $_COOKIE['sessionID'])->get();
-        $total = Cart::select(DB::raw('SUM(produk.harga) as totalHarga'))->join('produk', 'produk.id', '=', 'cart.id_produk')->where('session_id' , $_COOKIE['sessionID'])->get();
+        $total = Cart::select(DB::raw("SUM(produk.$harga * cart.qty) as totalHarga"))->join('produk', 'produk.id', '=', 'cart.id_produk')->where('session_id' , $_COOKIE['sessionID'])->get();
 
         $dataProvinsi = RajaOngkir::Provinsi()->all();
 
@@ -118,6 +125,15 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+        
+        $penjualanCount = DB::table('penjualan')->where('tanggal', date("Y-m-d"))->count();
+
+        if (strlen($penjualanCount + 2) == 3) {
+         $kodeUnik = $request->sub_total + ltrim($penjualanCount + 2);
+        }else{
+         $kodeUnik = $request->sub_total + $penjualanCount + 2;
+        }
+
         if ($request->payment_method == "dijemput") {
            $ongkir = 0;
            $kota = $request->hiddenKota;
@@ -146,7 +162,7 @@ class ProductController extends Controller
             'tanggal' => date("Y-m-d"),
             'sub_total' => $request->sub_total,
             'ongkir' => $ongkir,
-            'total' => $request->sub_total+$ongkir,
+            'total' => $kodeUnik+$ongkir,
             'status' => 'PENDING',
             'id_trafic' => $getIdTrafik[0]->id,
             'id_admin' => '',
@@ -179,7 +195,9 @@ class ProductController extends Controller
     public function checkoutSuccess()
     {
         $penjualan = DB::table('penjualan')->orderBy('id', 'desc')->get();
-        return view('content.checkoutSuccess',compact('penjualan'));
+        
+         $kodeUnik = $penjualan[0]->total;
+        return view('content.checkoutSuccess',compact('penjualan','kodeUnik'));
     }
 
     public function getKota(Request $request)
@@ -217,5 +235,14 @@ class ProductController extends Controller
         Cart::where('session_id', $_COOKIE['sessionID'])->where('id', $request->id)->update(['qty' => $request->jumlah]);
         $array = array('success' => 1);
         return json_encode($array);
+    }
+
+    public function gallery()
+    {
+       
+       $setting = DB::table('setting')->where('nama', 'URL_GAMBAR')->get();
+       $gallerys = DB::table('galeri')->get();
+
+       return view('content.gallery',compact('setting'))->with('gallerys', $gallerys);
     }
   }

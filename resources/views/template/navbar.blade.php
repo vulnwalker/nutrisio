@@ -14,6 +14,7 @@
                             <li id="menu-item-164" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-164 nav-item nl-simple"><a href="/" class="nav-link">HOME</a></li>
                             <li id="menu-item-164" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-164 nav-item nl-simple"><a href="/products" class="nav-link">PRODUCT</a></li>
                             <li id="menu-item-164" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-164 nav-item nl-simple"><a href="/about" class="nav-link">ABOUT</a></li>
+                            <li id="menu-item-164" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-164 nav-item nl-simple"><a href="/gallery" class="nav-link">GALLERY</a></li>
                             <li class="cart-icon nav-icon menu-item menu-item-has-children nav-item dropdown nl-simple">
                                 <a class="cart-contents nav-link" href="/cart" title="View your shopping cart">
                                     <svg class="svg-inline--fa fa-shopping-cart fa-w-18" aria-hidden="true" data-prefix="fa" data-icon="shopping-cart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">

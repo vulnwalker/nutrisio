@@ -80,6 +80,7 @@ Route::get('/product/{id}', 'ProductController@show')->name('product');
 Route::post('/addTocart', 'ProductController@addTocart')->name('addTocart');
 Route::get('/delDataCart/{id}', 'ProductController@delDataCart')->name('delDataCart');
 Route::get('/cart', 'ProductController@cart')->name('cart');
+Route::get('/gallery', 'ProductController@gallery')->name('gallery');
 Route::post('/changeQty', 'ProductController@changeQty')->name('changeQty');
 
 Auth::routes();

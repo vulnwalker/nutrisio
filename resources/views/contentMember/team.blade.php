@@ -29,6 +29,7 @@
                             <th scope="col">Tanggal</th>
                             <th scope="col">Nama</th>
                             <th scope="col">Email</th>
+                            <th scope="col">Downline</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -48,6 +49,9 @@
                             </td>
                             <td class="budget">
                               {{ $dataMembers['email']}}
+                            </td>
+                            <td class="budget">
+                             {{ $dataMembers['downline']}}
                             </td>
 
                           </tr>

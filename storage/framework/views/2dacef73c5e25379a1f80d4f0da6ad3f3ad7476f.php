@@ -1,4 +1,10 @@
 <?php $__env->startSection('content'); ?>
+     <script type="text/javascript">
+        $(document).ready(function(){
+          $(".dropdown-toggle").dropdown();
+        });
+     </script>
+     
         <div class="header pb-6">
           <div class="container-fluid" style="margin-top: 2%;">
           </div>
@@ -12,7 +18,7 @@
                       <h3 class="mb-0">MY TEAM</h3>
                     </div>
                     <!-- Light table -->
-                    <div class="table-responsive" data-toggle="list" data-list-values='["name", "budget", "status", "completion"]'>
+                    <div class="table-responsive" >
                       <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                           <tr>
@@ -20,9 +26,10 @@
                             <th scope="col">Tanggal</th>
                             <th scope="col">Nama</th>
                             <th scope="col">Email</th>
+                            <th scope="col">Downline</th>
                           </tr>
                         </thead>
-                        <tbody class="list">
+                        <tbody>
                           <?php
                             $no = 1;
                           ?>
@@ -41,6 +48,10 @@
                             </td>
                             <td class="budget">
                               <?php echo e($dataMembers['email']); ?>
+
+                            </td>
+                            <td class="budget">
+                             <?php echo e($dataMembers['downline']); ?>
 
                             </td>
 
