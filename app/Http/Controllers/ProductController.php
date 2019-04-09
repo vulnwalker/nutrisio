@@ -214,7 +214,7 @@ class ProductController extends Controller
     {
        // $getBerat = RajaOngkir::Kota()->find($request->id_kota);
 
-        $getBerat = Cart::select(DB::raw('SUM(produk.berat) as totalBerat'))->join('produk', 'produk.id', '=', 'cart.id_produk')->where('session_id' , $_COOKIE['sessionID'])->get();
+        $getBerat = Cart::select(DB::raw('SUM(produk.berat * cart.qty) as totalBerat'))->join('produk', 'produk.id', '=', 'cart.id_produk')->where('session_id' , $_COOKIE['sessionID'])->get();
 
         $getInfoKota = RajaOngkir::Cost([
             'origin'        => 22,

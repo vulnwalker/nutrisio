@@ -33,6 +33,10 @@ Route::get('/about', function () {
   return  view("content.about");
 });
 
+Route::get('/contact', function () {
+  return  view("content.contact");
+});
+
 
 Route::get('/', function () {
   $cookieValue= md5(date("Y-m-d H:i:s"));

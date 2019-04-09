@@ -1,4 +1,3 @@
-<?php /* /var/www/html/nutrisio.rm-rf.studio/resources/views/contentMember/profile.blade.php */ ?>
 
 
 <?php $__env->startSection('content'); ?>
@@ -82,6 +81,7 @@
                       </div>
                     </div>
                   </div>
+
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group">
@@ -104,6 +104,20 @@
                       </div>
                     </div>
                   </div>
+
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-last-name">Atas Nama</label>
+                        <?php if(Auth::user()->atas_nama == ""): ?>
+                           <input type="text" name="atas_nama" class="form-control" value="">
+                        <?php else: ?>
+                           <input type="text" name="atas_nama" class="form-control" value="<?php echo e(Auth::user()->atas_nama); ?>" readonly>
+                        <?php endif; ?>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
                 <hr class="my-4">
                 <!-- Address -->
@@ -135,3 +149,4 @@
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php /* /var/www/html/nutrisio.rm-rf.studio/resources/views/contentMember/profile.blade.php */ ?>

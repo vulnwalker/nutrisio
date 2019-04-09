@@ -1,10 +1,30 @@
+<style type="text/css">
+    .navbar-brand {
+        margin-right: 0px !important;
+    }
+
+    .navbar-expand-lg .navbar-nav .nav-link {
+        font-size: 12px !important;
+    }
+
+    .nav-item {
+        margin: 0 11px !important;
+    }
+
+    .navbar .btn {
+        font-size: 12px  !important;
+        padding: 10px 1.65rem  !important;
+        margin-left: 3px  !important;
+    }
+
+</style>
         <header id="header" class="header navbar-style1">
             <nav class="navbar navbar-expand-lg hover-menu  fixed-top bg-light navbar-light">
                 <div class="container">
 
                     <!-- logo -->
-                    <a href="/" class="navbar-brand logo-white" rel="home"><img src="../wp-content/themes/genemy/images/logo-white.png" height="30" alt="Genemy"></a>
-                    <a href="/" class="navbar-brand logo-black" rel="home"><img src="<?php echo e(asset('images/logo.png')); ?>" height="30" alt="Genemy"></a>
+                    <a href="/" class="navbar-brand logo-white" rel="home"><img src="" height="30"></a>
+                    <a href="/" class="navbar-brand logo-black" rel="home"><img src="<?php echo e(asset('images/logo.png')); ?>" height="30" style="width: 65%;"></a>
 
                     <!-- Responsive Menu Button -->
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"><svg class="svg-inline--fa fa-bars fa-w-14" aria-hidden="true" data-prefix="fas" data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg><!-- <i class="fas fa-bars"></i> --></span></button>
@@ -15,6 +35,7 @@
                             <li id="menu-item-164" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-164 nav-item nl-simple"><a href="/products" class="nav-link">PRODUCT</a></li>
                             <li id="menu-item-164" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-164 nav-item nl-simple"><a href="/about" class="nav-link">ABOUT</a></li>
                             <li id="menu-item-164" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-164 nav-item nl-simple"><a href="/gallery" class="nav-link">GALLERY</a></li>
+                            <li id="menu-item-164" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-164 nav-item nl-simple"><a href="/contact" class="nav-link">CONTACT</a></li>
                             <li class="cart-icon nav-icon menu-item menu-item-has-children nav-item dropdown nl-simple">
                                 <a class="cart-contents nav-link" href="/cart" title="View your shopping cart">
                                     <svg class="svg-inline--fa fa-shopping-cart fa-w-18" aria-hidden="true" data-prefix="fa" data-icon="shopping-cart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">

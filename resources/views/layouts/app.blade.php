@@ -21,6 +21,27 @@
   pointer-events: none;
 }
 </style>
+    <script type="text/javascript">
+            
+      function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
+
+      window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      }
+    </script>
+
+    
     <script src="{{ asset('memberPanel/vendor/jquery/dist/jquery.min.js')}}"></script>
         <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.2/umd/popper.min.js"></script>
@@ -120,7 +141,7 @@
                 <ul class="nav navbar-nav align-items-center ml-auto ml-md-0">
                     <li class="nav-item dropdown">
 
-                      <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <a class="nav-link pr-0"  onclick="myFunction()"role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="media align-items-center">
                           <span class="avatar avatar-sm rounded-circle">
                             <img alt="Image placeholder" src="https://png.pngtree.com/element_origin_min_pic/20/04/20/165716f6669e9fd.jpg">
@@ -130,7 +151,7 @@
                           </div>
                         </div>
                       </a>
-                      <div class="dropdown-menu dropdown-menu-right">
+                      <div class="dropdown-menu dropdown-menu-right" id="myDropdown">
                         <div class="dropdown-header noti-title">
                           <h6 class="text-overflow m-0">Welcome!</h6>
                         </div>
@@ -157,8 +178,6 @@
         @yield('content')
 
     </div>
-
-
 
 
       <script src="{{ asset('memberPanel/vendor/js-cookie/js.cookie.js')}}"></script>
