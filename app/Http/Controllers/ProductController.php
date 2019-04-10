@@ -113,7 +113,7 @@ class ProductController extends Controller
         }else{
            $harga="harga";
         }
-        $carts = Cart::select('cart.*','produk.harga','produk.nama_produk')->join('produk', 'produk.id', '=', 'cart.id_produk')->where('session_id' , $_COOKIE['sessionID'])->get();
+        $carts = Cart::select('cart.*','produk.harga','produk.harga_member','produk.nama_produk')->join('produk', 'produk.id', '=', 'cart.id_produk')->where('session_id' , $_COOKIE['sessionID'])->get();
         $total = Cart::select(DB::raw("SUM(produk.$harga * cart.qty) as totalHarga"))->join('produk', 'produk.id', '=', 'cart.id_produk')->where('session_id' , $_COOKIE['sessionID'])->get();
 
         $dataProvinsi = RajaOngkir::Provinsi()->all();
@@ -125,7 +125,13 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        
+        $user = Auth::user();
+        $getIdTrafik = Trafic::select('trafic.*')->where('unique_id',$_COOKIE['sessionID'])->get();
+        if (!empty($user->id)) {
+            $idMember = $user->id;
+        }else{
+            $idMember = $getIdTrafik[0]->id_member;
+        }
         $penjualanCount = DB::table('penjualan')->where('tanggal', date("Y-m-d"))->count();
 
         if (strlen($penjualanCount + 2) == 3) {
@@ -147,10 +153,10 @@ class ProductController extends Controller
         }else{
            $ongkir = 0;
         }
-        $getIdTrafik = Trafic::select('trafic.*')->where('unique_id',$_COOKIE['sessionID'])->get();
+        
 
         DB::table('penjualan')->where('#')->insert(array(
-            'id_member'=>$getIdTrafik[0]->id_member,
+            'id_member'=>$idMember,
             'nama_pembeli'=>$request->name,
             'email_pembeli' => $request->email,
             'nomor_telepon' => $request->phone,

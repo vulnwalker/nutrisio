@@ -1,4 +1,3 @@
-<?php /* /var/www/html/nutrisio.rm-rf.studio/resources/views/contentMember/orderStatus.blade.php */ ?>
 <?php $__env->startSection('content'); ?>
         <div class="header pb-6">
           <div class="container-fluid" style="margin-top: 2%;">
@@ -54,7 +53,7 @@
                              <?php endif; ?>
                             </td>
                             <td>
-                             <a onclick="window.location.href='detailPenjualan/<?php echo e($dataPenjualan->id); ?>'" href=""> Detail Info</a>
+                           <button class="btn btn-info btn-sm" onclick="window.location.href='detailPenjualan/<?php echo e($dataPenjualan->id); ?>'">Detail Info</button>
                             </td>
 
                           </tr>
@@ -73,3 +72,4 @@
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php /* /var/www/html/nutrisio.rm-rf.studio/resources/views/contentMember/orderStatus.blade.php */ ?>

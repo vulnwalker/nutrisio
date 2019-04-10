@@ -182,10 +182,17 @@
                                                             <td class="product-name">
                                                                 {{ $cart->nama_produk }}  <strong class="product-quantity">× {{ $cart->qty }}</strong>
                                                             </td>
+                                                            @if(!empty(Auth::user()->id))
                                                             <td class="product-total">
+                                                                <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">Rp</span> {{ number_format($cart->harga_member,0," ",".") }}</span>
+
+                                                            </td>
+                                                            @else
+                                                             <td class="product-total">
                                                                 <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">Rp</span> {{ number_format($cart->harga,0," ",".") }}</span>
 
                                                             </td>
+                                                            @endif
                                                         </tr>
                                                         @endforeach
                                                     </tbody>

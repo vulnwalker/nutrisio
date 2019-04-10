@@ -52,7 +52,7 @@
                              @endif
                             </td>
                             <td>
-                             <a onclick="window.location.href='detailPenjualan/{{ $dataPenjualan->id }}'" href=""> Detail Info</a>
+                           <button class="btn btn-info btn-sm" onclick="window.location.href='detailPenjualan/{{ $dataPenjualan->id }}'">Detail Info</button>
                             </td>
 
                           </tr>

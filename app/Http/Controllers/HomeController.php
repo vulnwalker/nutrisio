@@ -114,7 +114,7 @@ class HomeController extends Controller
     public function trafic()
     {
         $user = Auth::user();
-        $topTeen = DB::table('trafic','artikel')->select(DB::raw('COUNT(trafic.id) as totalTrafic'),'artikel.judul')->join('artikel', 'artikel.id', '=', 'trafic.id_artikel')->where('trafic.id_member', $user->id)->whereMonth('trafic.tanggal', date('m'))->groupBy('trafic.id')->limit(10)->get();
+        $topTeen = DB::table('trafic','artikel')->select(DB::raw('COUNT(trafic.id) as totalTrafic'),'artikel.judul')->join('artikel', 'artikel.id', '=', 'trafic.id_artikel')->where('trafic.id_member', $user->id)->whereMonth('trafic.tanggal', date('m'))->groupBy('trafic.id_artikel')->limit(10)->get();
 
         $dataTrafics = DB::table('trafic','artikel')->select('trafic.*','artikel.judul')->join('artikel', 'artikel.id', '=', 'trafic.id_artikel')->where('trafic.id_member', $user->id)->whereMonth('trafic.tanggal', date('m'))->paginate(25);
         return view('contentMember.trafic',compact("dataTrafics","topTeen"));

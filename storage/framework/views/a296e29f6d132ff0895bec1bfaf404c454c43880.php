@@ -181,10 +181,17 @@
                                                             <td class="product-name">
                                                                 <?php echo e($cart->nama_produk); ?>  <strong class="product-quantity">× <?php echo e($cart->qty); ?></strong>
                                                             </td>
+                                                            <?php if(!empty(Auth::user()->id)): ?>
                                                             <td class="product-total">
+                                                                <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">Rp</span> <?php echo e(number_format($cart->harga_member,0," ",".")); ?></span>
+
+                                                            </td>
+                                                            <?php else: ?>
+                                                             <td class="product-total">
                                                                 <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">Rp</span> <?php echo e(number_format($cart->harga,0," ",".")); ?></span>
 
                                                             </td>
+                                                            <?php endif; ?>
                                                         </tr>
                                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </tbody>

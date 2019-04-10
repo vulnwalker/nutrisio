@@ -20,6 +20,7 @@
                     <p class="p-lg -color">Selamat Pesanan Kamu telah berhasil</p>
                     <p class="p-lg -color">ID Order {{ $penjualan[0]->id }}, akan segera diprosess setelah melakukan pembayaran <br> Segera selesaikan pembayaran mu </p>
                     <p class="p-lg -color" style="background: whitesmoke;">Melakukan pembayaran sebesar <br> Rp {{ number_format( $kodeUnik ,0," ",".") }}</p>
+                    <p class="p-lg -color" style="background: whitesmoke;">Kode Unik anda : <br>  {{ substr( $kodeUnik ,-3) }}</p>
 
 <hr>
                     <p class="p-lg -color">TRANSFER PEMBAYARAN KE REKENING BANK BERIKUT <br> <img src="https://upload.wikimedia.org/wikipedia/id/thumb/e/e0/BCA_logo.svg/1280px-BCA_logo.svg.png" style="width: 15%;vertical-align: bottom;" > <span style="margin-left: 4%;color: orange;">802131231</span> <br> Atas Nama : Suryadi</p>
