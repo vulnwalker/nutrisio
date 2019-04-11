@@ -29,25 +29,28 @@
               </div>
             </div>
             <div class="card-body pt-0" style="margin-top: 10%;">
-              
+
               <div class="text-center">
                 <h5 class="h3">
                   <?php echo e(Auth::user()->nama); ?><span class="font-weight-light">, <?php echo e(Auth::user()->status); ?> </span>
                 </h5>
                 <div class="h5 font-weight-300">
-                  <i class="ni location_pin mr-2"></i><?php echo e(Auth::user()->alamat); ?> 
+                  <i class="ni location_pin mr-2"></i><?php echo e(str_replace("<br>",", ",Auth::user()->alamat)); ?>
+
                 </div>
                 <div class="h5 mt-4">
-                  <i class="ni business_briefcase-24 mr-2"></i>No Telp : <?php echo e(Auth::user()->nomor_telepon); ?>  
+                  <i class="ni business_briefcase-24 mr-2"></i>No Telp : <?php echo e(Auth::user()->nomor_telepon); ?>
+
                 </div>
                 <div>
-                  <i class="ni education_hat mr-2"></i>Email : <?php echo e(Auth::user()->email); ?>   
+                  <i class="ni education_hat mr-2"></i>Email : <?php echo e(Auth::user()->email); ?>
+
                 </div>
               </div>
             </div>
           </div>
           <!-- Progress track -->
-        
+
         </div>
         <div class="col-xl-8 order-xl-1">
           <div class="card">
@@ -133,12 +136,12 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-address">Alamat</label>
-                        <input name="alamat" class="form-control" placeholder="Home Address" value="<?php echo e(Auth::user()->alamat); ?>" type="text">
+                        <textarea name="alamat" class="form-control" placeholder="Home Address" type="text"><?php echo e(str_replace("<br>","\n", Auth::user()->alamat)); ?></textarea>
                       </div>
                     </div>
                   </div>
                 </div>
-       
+
               </form>
             </div>
           </div>

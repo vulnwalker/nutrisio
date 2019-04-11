@@ -1,6 +1,7 @@
 <?php $__env->startSection('content'); ?>
 <?php echo $__env->make('template.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.css">
 <div class="p-top-bottom-100 division header-area-hide">
     <div class="container">
         <div class="row">
@@ -40,30 +41,29 @@
                                                         <div class="wpb_wrapper">
                                                             <div class="contacts-1 m-bottom-40">
                                                                 <div class="contact-box wow ">
-                                                                    <h5 class="h5-sm">Our Location</h5>
+                                                                    <h5 class="h5-sm">Lokasi</h5>
                                                                     <div class="grey-color">
-                                                                        <p>121 King Street, Melbourne,
-                                                                            <br /> Victoria 3000 Australia</p>
+                                                                        <p>Arudaya Residen Blok B No 7 ,
+                                                                            <br /> RT 03 RW 11 Pasir Biru
+                                                                            <br /> Cibiru Kodya Bandung
+                                                                        </p>
                                                                     </div>
                                                                 </div>
                                                             </div>
 
                                                             <div class="contacts-1 m-bottom-40">
                                                                 <div class="contact-box wow ">
-                                                                    <h5 class="h5-sm">Let&#039;s Talk</h5>
+                                                                    <h5 class="h5-sm">Kontak Kami</h5>
                                                                     <div class="grey-color">
-                                                                        <p>Phone : +12 3 3456 7890
-                                                                            <br /> Fax : +12 9 8765 4321</p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="contacts-1 m-bottom-40">
-                                                                <div class="contact-box wow ">
-                                                                    <h5 class="h5-sm">Working Hours</h5>
-                                                                    <div class="grey-color">
-                                                                        <p>Mon - Fri: 8:30am - 7:30pm
-                                                                            <br /> Sat: 8:30am - 3:30pm</p>
+                                                                        <p>Phone : 0821-2777-7362
+                                                                            <br /> Email : admin@rizkikita.com</p>
+                                            <div style="font-size: 27px;">
+                                            <a href="https://www.facebook.com/nutrisio.official/" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                                            <a href="https://www.instagram.com/nutrisio.official/" target="_blank"><i class="fab fa-instagram"></i></a>
+                                            <a href="https://t.me/joinchat/AAAAAFjUYNzV0QMD4YoXNQ" target="_blank"><i class="fab fa-telegram"></i></a>
+                                            <a href="http://api.whatsapp.com/send?phone=6282127777362&text=Hallo%20Nutrisio%20Official" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                                            </div>
+                                                                            
                                                                     </div>
                                                                 </div>
                                                             </div>

@@ -1,4 +1,3 @@
-<?php /* /var/www/html/nutrisio.rm-rf.studio/resources/views/welcome.blade.php */ ?>
 <!DOCTYPE html>
 <html lang="en-US" class="no-js no-svg">
 
@@ -11,7 +10,7 @@
     <meta name="vieassetort" content="width=device-width, initial-scale=1">
     <link rel="profile" href="http://gmpg.org/xfn/11">
 
-    <title>Rezeki Kita</title>
+    <title>Rizki Kita</title>
 
     <?php echo $__env->make('template.style', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
@@ -39,3 +38,4 @@
 
     </body>
 </html>
+<?php /* /var/www/html/nutrisio.rm-rf.studio/resources/views/welcome.blade.php */ ?>

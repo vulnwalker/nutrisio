@@ -39,13 +39,13 @@
                                                 <div class="project-description white-color">
                                                     <div class="project-link">
 
-                                                        <p class="rose-color">Digital Art, Graphic Design</p>
+                                                        <!-- <p class="rose-color">Digital Art, Graphic Design</p> -->
                                                         <!-- Project Meta -->
 
                                                         <h5 class="h5-lg">
 
 										<!-- Image Zoom -->
-										<a class="image-link" href="<?php echo e($gambar); ?>" title="Mockup PSD Image">										
+										<a class="image-link" href="<?php echo e($gambar); ?>" >		VIEW								
 										</a>
 									</h5>
                                                         <!-- Project Link -->

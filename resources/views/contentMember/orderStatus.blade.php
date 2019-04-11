@@ -47,6 +47,10 @@
                             <td class="budget" style="text-align: center;">
                              @if($dataPenjualan->status == "PENDING")
                               <span class="text-red "> PENDING </span>
+                             @elseif($dataPenjualan->status == "PAID")
+                             <span class="text-orange "> PAID </span>
+                             @elseif($dataPenjualan->status == "DELIVERY")
+                             <span class="text-pink "> DELIVERY </span>
                              @elseif($dataPenjualan->status == "SUKSES")
                              <span class="text-green "> SUKSES </span>
                              @endif

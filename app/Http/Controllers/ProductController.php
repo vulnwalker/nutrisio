@@ -175,19 +175,25 @@ class ProductController extends Controller
             'service_pengiriman' => $metodePengiriman,
         ));
 
-        $query = Cart::select('cart.*','produk.harga','produk.nama_produk')->join('produk', 'produk.id', '=', 'cart.id_produk');
+        $query = Cart::select('cart.*','produk.harga','produk.harga_member','produk.nama_produk')->join('produk', 'produk.id', '=', 'cart.id_produk');
         $CekTmp= Cart::select('cart.*')->where('session_id',$_COOKIE['sessionID'])->max('id');
         $idPenjualan= DB::table('penjualan')->where('id_trafic' , $getIdTrafik[0]->id)->max('id');
         if($CekTmp != 0){
           $tempPenjualan = $query->where('session_id' , $_COOKIE['sessionID'])->get();
 
           foreach ($tempPenjualan as $row){
+            $user = Auth::user();
+            if (!empty($user->id)) {
+                $hargaDetail = $row['harga_member'];
+            }else{
+                $hargaDetail = $row['harga'];
+            }
               $detail_penjualan[] = [
                   'id_penjualan' => $idPenjualan,
                   'id_produk' => $row['id_produk'],
                   'jumlah' => $row['qty'],
-                  'harga' => $row['harga'],
-                  'total' => $row['qty']*$row['harga'],
+                  'harga' => $hargaDetail,
+                  'total' => $row['qty']*$hargaDetail,
               ];
           }
     }

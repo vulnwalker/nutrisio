@@ -10,7 +10,7 @@
     <meta name="vieassetort" content="width=device-width, initial-scale=1">
     <link rel="profile" href="http://gmpg.org/xfn/11">
 
-    <title>Rezeki Kita</title>
+    <title>Rizki Kita</title>
 
     @include('template.style')
 

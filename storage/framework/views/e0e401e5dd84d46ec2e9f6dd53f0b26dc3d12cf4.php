@@ -48,6 +48,10 @@
                             <td class="budget" style="text-align: center;">
                              <?php if($dataPenjualan->status == "PENDING"): ?>
                               <span class="text-red "> PENDING </span>
+                             <?php elseif($dataPenjualan->status == "PAID"): ?>
+                             <span class="text-orange "> PAID </span>
+                             <?php elseif($dataPenjualan->status == "DELIVERY"): ?>
+                             <span class="text-pink "> DELIVERY </span>
                              <?php elseif($dataPenjualan->status == "SUKSES"): ?>
                              <span class="text-green "> SUKSES </span>
                              <?php endif; ?>

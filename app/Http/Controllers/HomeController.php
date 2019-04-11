@@ -63,7 +63,7 @@ class HomeController extends Controller
         $dataMember = array();
         foreach ($getMembers as $getMember) {
             $dataUpline = json_decode($getMember->upline);
-            
+
                 if ($dataUpline[3]->LEVEL4 == $user->id) {
                     // $downline = DB::table('users')->where('uplines', 'LIKE',`'%"LEVEL4": "$getMember->id"%'`)->count('id');
                     $wasu= '%"LEVEL4": "'.$getMember->id.'"%';
@@ -83,19 +83,19 @@ class HomeController extends Controller
 
                 // Get current page form url e.x. &page=1
         $currentPage = LengthAwarePaginator::resolveCurrentPage();
- 
+
         // Create a new Laravel collection from the array data
         $itemCollection = collect($dataMember);
- 
+
         // Define how many items we want to be visible in each page
         $perPage = 50;
- 
+
         // Slice the collection to get the items to display in current page
         $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
- 
+
         // Create our paginator and pass it to the view
         $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
- 
+
         // set url path for generted links
         $paginatedItems->setPath("team/");
 
@@ -118,7 +118,7 @@ class HomeController extends Controller
 
         $dataTrafics = DB::table('trafic','artikel')->select('trafic.*','artikel.judul')->join('artikel', 'artikel.id', '=', 'trafic.id_artikel')->where('trafic.id_member', $user->id)->whereMonth('trafic.tanggal', date('m'))->paginate(25);
         return view('contentMember.trafic',compact("dataTrafics","topTeen"));
-    
+
     }
 
     public function profile()
@@ -132,7 +132,7 @@ class HomeController extends Controller
        $user = Auth::user();
 
         DB::table('users')->where('id', $user->id)->update([
-            'alamat' => $request->alamat,
+            'alamat' => str_replace("\n","<br>",$request->alamat),
             'nomor_rekening' => $request->nomor_rekening,
             'nama_bank' => $request->nama_bank,
             'atas_nama' => $request->atas_nama,

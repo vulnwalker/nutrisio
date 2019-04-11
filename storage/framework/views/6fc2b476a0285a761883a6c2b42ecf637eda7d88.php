@@ -1,8 +1,7 @@
-<?php /* /var/www/html/nutrisio.rm-rf.studio/resources/views/auth/login.blade.php */ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Sign In | Rezeki Kita</title>
+    <title>Sign In | Rizki Kita</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->  
@@ -36,7 +35,7 @@
                 <form class="login100-form validate-form" method="POST" action="<?php echo e(route('login')); ?>">
                     <?php echo csrf_field(); ?>
                     <span class="login100-form-title p-b-34">
-                        Welcome Member Rezeki Kita
+                        Welcome Member Rizki Kita
                     </span>
 
                     <div class="login100-form-title p-b-34">
@@ -95,3 +94,4 @@
 </body>
 </html>
 fuji
+<?php /* /var/www/html/nutrisio.rm-rf.studio/resources/views/auth/login.blade.php */ ?>
