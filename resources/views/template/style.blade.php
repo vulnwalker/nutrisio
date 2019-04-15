@@ -1,4 +1,12 @@
-    <link rel='stylesheet' id='contact-form-7-css' href="{{ asset('asset-content/plugins/contact-form-7/includes/css/styles1748.css?ver=5.0.5') }}" type='text/css' media='all' />
+<meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  <link rel='dns-prefetch' href='//fonts.googleapis.com' /> 
+  <link rel='dns-prefetch' href='//s.w.org' /> 
+  <link rel="alternate" type="application/rss+xml" title="Genemy &sraquo; Feed" href="http://jthemes.org/wp/genemy/creative/feed/" /> 
+  <link rel="alternate" type="application/rss+xml" title="Genemy &raquo; Comments Feed" href="http://jthemes.org/wp/genemy/creative/comments/feed/" /> 
+  <link rel="alternate" type="application/rss+xml" title="Genemy &raquo; Portfolios Feed" href="http://jthemes.org/wp/genemy/creative/portfolios/feed/" /> 
+      <link rel='stylesheet' id='contact-form-7-css' href="{{ asset('asset-content/plugins/contact-form-7/includes/css/styles1748.css?ver=5.0.5') }}" type='text/css' media='all' />
     
     <link rel='stylesheet' id='envato-asset-demo-preview-css-css' href="{{ asset('asset-content/plugins/envato-asset-demo-preview/css/style8e83.css?ver=4.9.10') }}" type='text/css' media='all' />
     <link rel='stylesheet' id='woocommerce-layout-css' href="{{ asset('asset-content/plugins/woocommerce/assets/css/woocommerce-layout9d52.css?ver=3.5.1') }}" type='text/css' media='all' />

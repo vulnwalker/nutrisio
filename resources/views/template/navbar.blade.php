@@ -51,21 +51,42 @@
                              </a>
                          </li>
                         @else
-                        <li id="menu-item-990" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-990 nav-item dropdown nl-simple"><a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->nama }}</a>
-                        <div class="sub-menu dropdown-menu"><div class="crrm-inner row">
-                            <div id="menu-item-992" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-992 ">
-                                <a href="/home" class="dropdown-item">Dashboard</a>
+                        <li id="menu-item-990" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-990 nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->nama }}</a>
+                        <div class="sub-menu dropdown-menu">
+                            <div class="crrm-inner row">
+                                <div id="menu-item-992" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-992 ">
+                                    <a href="/home" class="dropdown-item">Dashboard</a>
+                                </div>
+                                <div id="menu-item-991" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-991 ">
+                                    <a href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();" class="dropdown-item">Logout</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                    </form>
+                                </div>
                             </div>
-                            <div id="menu-item-991" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-991 ">
-                                <a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();" class="dropdown-item">Logout</a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                </form>
+                            <span class="caret"></span>
+                        </div>
+                    </li>
+         <!--            <li id="menu-item-990" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-990 nav-item dropdown nl-simple"><a href="#" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->nama }}</a>
+                        <div class="sub-menu dropdown-menu">
+                            <div class="crrm-inner row">
+                                <div id="menu-item-992" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-992 ">
+                                    <a href="/home" class="dropdown-item">Dashboard</a>
+                                </div>
+                                <div id="menu-item-991" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-991 ">
+                                    <a href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();" class="dropdown-item">Logout</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                    </form>
+                                </div>
                             </div>
-                        </div><span class="caret"></span></div>
-                        </li>
+                            <span class="caret"></span>
+                        </div>
+                        </li> -->
                         @endguest
 
                         </ul>

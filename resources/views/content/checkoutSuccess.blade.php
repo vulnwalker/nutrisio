@@ -23,7 +23,11 @@
                     <p class="p-lg -color" style="background: whitesmoke;">Kode Unik anda : <br>  {{ substr( $kodeUnik ,-3) }} <br> <span style="color:red;">Mohon di iklaskan 3 Digit anda untuk mempermudah pengecekan kami</span></p>
 
 <hr>
-                    <p class="p-lg -color">TRANSFER PEMBAYARAN KE REKENING BANK BERIKUT <br> <img src="https://upload.wikimedia.org/wikipedia/id/thumb/e/e0/BCA_logo.svg/1280px-BCA_logo.svg.png" style="width: 15%;vertical-align: bottom;" > <span style="margin-left: 4%;color: orange;">802131231</span> <br> Atas Nama : Suryadi</p>
+                    <p class="p-lg -color">TRANSFER PEMBAYARAN KE REKENING BANK BERIKUT 
+                    <br>
+                     <img src="https://upload.wikimedia.org/wikipedia/id/thumb/e/e0/BCA_logo.svg/1280px-BCA_logo.svg.png" style="width: 15%;vertical-align: bottom;" > <span style="margin-left: 4%;color: orange;">4370976622</span> <br> Atas Nama : An Suryadi
+                     <br>
+                     <img src="https://bro.bnisyariah.co.id/assets/images/logo.png" style="width: 17%;vertical-align: middle;"> <span style="margin-left: 4%;color: orange;">0813237233</span> <br> Atas Nama : An Suryadi</p>
                     <hr>
                     <p class="p-lg -color"> Sudah Bayar ? <br>Yu Konfirmasi Pembayaran Kamu Sekarang <br> 0821-2777-7362 <br> 
                     <a href="http://api.whatsapp.com/send?phone=6282127777362&text=Konfirmasi%20order%20no%20{{ $penjualan[0]->id }}" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Place order" data-value="Place order">Konfirmasi</a>

@@ -72,7 +72,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="wpb_column vc_column_container vc_col-sm-8 bg-tra">
+                                               <!--  <div class="wpb_column vc_column_container vc_col-sm-8 bg-tra">
                                                     <div class="vc_column-inner">
                                                         <div class="wpb_wrapper">
                                                             <div role="form" class="wpcf7" id="wpcf7-f574-p68-o1" lang="en-US" dir="ltr">
@@ -103,7 +103,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>

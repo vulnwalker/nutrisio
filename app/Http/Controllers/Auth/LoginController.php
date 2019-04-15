@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Cart;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Illuminate\Http\Request;
@@ -50,6 +51,7 @@ class LoginController extends Controller
                         'password'  => $password,
                         'status'    =>"AKTIF"
                     ], $remember == 1 ? true : false)) {
+            Cart::where('session_id',$_COOKIE['sessionID'])->delete();
             return $this->sendLoginResponse($request);
           }else{
             return redirect()->back()

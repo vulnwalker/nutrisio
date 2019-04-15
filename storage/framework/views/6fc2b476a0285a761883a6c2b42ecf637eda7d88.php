@@ -45,18 +45,20 @@
                     <div class="login100-form-title p-b-34">
                         <input class="input100" type="password" name="password" placeholder="Password" style="border: 1px solid;">
                     </div>
-                    
-                    <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
-                        <a href="/" class="login100-form-btn">
-                            Back To Home
-                        </a>
-                    </div>
+
                     <div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password">
                         <button class="login100-form-btn">
                            <?php echo e(__('Login')); ?>
 
                         </button>
                     </div>
+                                        
+                    <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
+                        <a href="/" class="login100-form-btn">
+                            Back To Home
+                        </a>
+                    </div>
+                    
                 </form>
 
                 <div class="login100-more" style="background-image: url('images/bg-01.jpg');"></div>
